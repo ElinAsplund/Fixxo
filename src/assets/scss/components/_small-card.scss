@@ -34,6 +34,7 @@
             transition: 0.3s ease-in-out;
 
             a{
+                text-decoration: none;
 
                 .circle{
                     background-color: $color-white;
@@ -55,11 +56,9 @@
 
                     &:hover{
                         background-color: $color-dark;
-    
-                        img{
-                            // I used this generator: 
-                            // https://codepen.io/sosuke/pen/Pjoqqp
-                            filter: invert(93%) sepia(0%) saturate(7474%) hue-rotate(61deg) brightness(107%) contrast(107%);                        
+
+                        i{
+                            color: $color-white;
                         }
                     }
                 }

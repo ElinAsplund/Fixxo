@@ -1,0 +1,101 @@
+.featured-products{
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3{
+            font-size: $font-size-20;
+            font-weight: $font-weight-bold;
+            margin-bottom: 1.5rem;
+        }
+        .grid{
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 255px;
+            grid-template-rows: repeat(2, 320px);
+            
+            
+            #featured-card-3{
+                display: none;
+            }
+            #featured-card-4{
+                display: none;
+            }
+            #featured-card-5{
+                display: none;
+            }
+            #featured-card-6{
+                display: none;
+            }
+            #featured-card-7{
+                display: none;
+            }
+            #featured-card-8{
+                display: none;
+            }
+            
+            @media (min-width: 520px){
+                width: 100%;
+                height: 100%;
+                grid-template-columns: 1fr 1fr;
+
+                #featured-card-3{
+                    display: block;
+                }
+                #featured-card-4{
+                    display: block;
+                }
+            }
+
+            @include sm{
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include md{
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 350px);
+                gap: 2rem;
+            }
+            
+            @include lg{
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 350px);
+                
+                #featured-card-5{
+                    display: block;
+                }
+                #featured-card-6{
+                    display: block;
+                }
+            }
+            @include xl{
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(2, 350px);
+
+                #featured-card-7{
+                    display: block;
+                }
+                #featured-card-8{
+                    display: block;
+                }
+            }
+
+            .small-card{
+                .placeholder-area{
+                    .card-menu{
+                        top: -2px;
+
+                        @include md{
+                            top: 0.6rem;
+                        }
+                    }
+
+                    button{
+                        padding: 0.8rem 3rem;
+                    }
+                }
+            }
+        }
+    }
+}
