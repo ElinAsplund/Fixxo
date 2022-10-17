@@ -68,6 +68,7 @@ header{
 
             a{
                 margin: 0 0.3rem;
+                text-decoration: none;
 
                 &:first-child{
                     margin-left: 0rem;
@@ -90,17 +91,18 @@ header{
                     align-items: center;
                     filter: drop-shadow(0 2px 5px $color-grey-40);
                     transition: 0.2s ease-in-out;
-    
+
+                    .fa-bag-shopping{
+                        font-size: 1.05em;
+                    }
                     &:hover{
                         background-color: $color-dark;
-    
-                        img{
-                            filter: invert(93%) sepia(0%) saturate(7474%) hue-rotate(61deg) brightness(107%) contrast(107%);                        
-                        // I used this generator: 
-                        // https://codepen.io/sosuke/pen/Pjoqqp
+                        
+                        i{
+                            color: $color-white;
                         }
                     }
-    
+                    
                     .badge{
                         position: absolute;
                         background-color: $color-theme;
