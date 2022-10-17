@@ -4,6 +4,8 @@ import ShowcaseTop from './components/ShowcaseTop';
 import ShowcaseBottom from './components/ShowcaseBottom';
 import FeaturedProducts from './components/FeaturedProducts';
 import TopPicks from './components/TopPicks';
+import OurSpeciality from './components/OurSpeciality';
+import TwoForPriceOf from './components/TwoForPriceOf';
 import Footer from './components/Footer';
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
       <ShowcaseBottom />
       <FeaturedProducts />
       <TopPicks />
+      <OurSpeciality />
+      <TwoForPriceOf />
       <Footer />
     </>
   );
