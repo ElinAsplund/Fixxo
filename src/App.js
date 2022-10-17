@@ -8,6 +8,7 @@ import OurSpeciality from './components/OurSpeciality';
 import TwoForPriceOf from './components/TwoForPriceOf';
 import HighligtSale from './components/HighligtSale';
 import ChosenCategories from './components/ChosenCategories';
+import WebshopInfo from './components/WebshopInfo';
 import Footer from './components/Footer';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <TwoForPriceOf />
       <HighligtSale />
       <ChosenCategories />
+      <WebshopInfo />
       <Footer />
     </>
   );
