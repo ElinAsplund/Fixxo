@@ -6,6 +6,8 @@ import FeaturedProducts from './components/FeaturedProducts';
 import TopPicks from './components/TopPicks';
 import OurSpeciality from './components/OurSpeciality';
 import TwoForPriceOf from './components/TwoForPriceOf';
+import HighligtSale from './components/HighligtSale';
+import ChosenCategories from './components/ChosenCategories';
 import Footer from './components/Footer';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
       <TopPicks />
       <OurSpeciality />
       <TwoForPriceOf />
+      <HighligtSale />
+      <ChosenCategories />
       <Footer />
     </>
   );
