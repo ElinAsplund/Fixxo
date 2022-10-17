@@ -1,5 +1,8 @@
 header{
     background-color: $color-grey-30;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
 
     nav{
         width: 95vw;

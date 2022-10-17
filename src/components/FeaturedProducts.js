@@ -1,6 +1,7 @@
 import React from 'react'
 import SmallCard from './SmallCard'
 
+// How do I add diffrent id's to the cards?
 const FeaturedProducts = () => {
   return (
     <section className="featured-products">

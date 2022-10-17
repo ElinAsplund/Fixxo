@@ -1,6 +1,7 @@
 import React from 'react'
 import MiniCard from './MiniCard'
 
+// How do I add diffrent id's to the cards?
 const ChosenCategories = () => {
   return (
     <section className="chosen-categories ">
