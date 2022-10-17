@@ -1,9 +1,12 @@
 import './App.min.css';
+import Header from './components/Header';
+import ShowcaseTop from './components/ShowcaseTop';
 
 function App() {
   return (
     <>
-      <h1>Hej</h1>
+      <Header />
+      <ShowcaseTop />
     </>
   );
 }

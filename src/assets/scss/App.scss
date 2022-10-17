@@ -2,6 +2,39 @@
 @import "./core/variables";
 @import "./core/breakpoints";
 
+
+// Components
+@import "./components/header";
+@import "./components/button";
+// @import "./assets/components/small-card";
+// @import "./assets/components/mini-card";
+// @import "./assets/components/footer";
+// @import "./assets/components/page-title";
+
+// Sections: index.html
+@import "./sections/index/showcase-top";
+// @import "./assets/sections/index/showcase-bottom";
+// @import "./assets/sections/index/featured-products";
+// @import "./assets/sections/index/top-picks";
+// @import "./assets/sections/index/our-speciality";
+// @import "./assets/sections/index/two-for-price-of";
+// @import "./assets/sections/index/highlight-sale";
+// @import "./assets/sections/index/chosen-categories";
+// @import "./assets/sections/index/webshop-info";
+
+// // Sections: contact.html
+// @import "./assets/sections/contact/map";
+// @import "./assets/sections/contact/contact-form";
+
+// // Sections: product.html
+// @import "./assets/sections/product/current-offer-banner";
+// @import "./assets/sections/product/product-overview";
+// @import "./assets/sections/product/product-in-deph-info";
+// @import "./assets/sections/product/related-products";
+
+
+
+
 // Styling for the whole document
 * {
     padding: 0;
@@ -11,5 +44,25 @@
     font-size: 1rem;
     font-weight: $font-weight-regular;
     color: $color-dark;
-    background-color: $color-theme;
+}
+
+// To change header background-color and drop-shadow easier on nav
+.bg-white{
+    background-color: $color-white;
+
+    nav{
+        .nav-icons{
+            a{
+                .circle{
+                    filter: drop-shadow(0 2px 5px $color-grey-30);
+                }
+            }
+        }
+    }
+}
+
+// Styling of gradient for header background + showcase-top
+.gradient-grey{
+    background: #e6e6e6;
+    background: linear-gradient(90deg, #e6e6e6 0%, #f5f5f5 100%);
 }

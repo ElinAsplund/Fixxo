@@ -45,15 +45,15 @@ const isNameValid = name => {
 const onSubmitContact = event => {
     event.preventDefault()
     document.getElementById(`successful-post`).innerText = 'Please fill in the form correctly!'
-    document.getElementById("successful-post").classList.add("error-text")
-    document.getElementById("successful-post").classList.remove("text-success")
+    document.getElementById("successful-post").classNameList.add("error-text")
+    document.getElementById("successful-post").classNameList.remove("text-success")
 
     if (document.getElementById("userName-error").innerText === "" &&
     document.getElementById("userEmail-error").innerText === "" &&
     document.getElementById("userComment-error").innerText === ""){
             document.getElementById(`successful-post`).innerText = 'Comment posted!'
-            document.getElementById("successful-post").classList.remove("error-text")
-            document.getElementById("successful-post").classList.add("text-success")
+            document.getElementById("successful-post").classNameList.remove("error-text")
+            document.getElementById("successful-post").classNameList.add("text-success")
     }
 
     //     // ToDo:
@@ -83,13 +83,13 @@ const validate = (event) => {
                         if (!isMinimumLength(element.value, 2)) {
                             error += `Your ${label.toLocaleLowerCase()} must contain at least 2 letters.`
                             console.log(error);
-                            document.getElementById("userName").classList.add("error-input")
+                            document.getElementById("userName").classNameList.add("error-input")
                         } 
 
                         if (!isNameValid(element.value)) {
                             error += ` Your ${label.toLocaleLowerCase()} can only contain letters.`
                             console.log(error);
-                            document.getElementById("userName").classList.add("error-input")
+                            document.getElementById("userName").classNameList.add("error-input")
                         } 
   
                     } else {
@@ -99,7 +99,7 @@ const validate = (event) => {
                     document.getElementById(`${element.id}-error`).innerText = error
 
                     if(error===""){
-                        document.getElementById("userName").classList.remove("error-input")
+                        document.getElementById("userName").classNameList.remove("error-input")
                     }
                     break;
 
@@ -109,18 +109,18 @@ const validate = (event) => {
                         if (!isEmailValid(element.value)) {
                             error = `Please enter a valid ${label.toLocaleLowerCase()}.`
                             console.log(error);
-                            document.getElementById("userEmail").classList.add("error-input")
+                            document.getElementById("userEmail").classNameList.add("error-input")
                         } 
 
                     } else {
                         error = `Please enter an ${label.toLocaleLowerCase()}!`
                         console.log(error);
-                        document.getElementById("userEmail").classList.add("error-input")
+                        document.getElementById("userEmail").classNameList.add("error-input")
                     }
                     document.getElementById(`${element.id}-error`).innerText = error
 
                     if(error===""){
-                        document.getElementById("userEmail").classList.remove("error-input")
+                        document.getElementById("userEmail").classNameList.remove("error-input")
                     }
                     break;
                 
@@ -128,13 +128,13 @@ const validate = (event) => {
                 case 'textarea':
                     if (isNullOrEmpty(element.value)) {
                         error = `Please enter a ${label.toLocaleLowerCase()}!`
-                        document.getElementById("userComment").classList.add("error-input")
+                        document.getElementById("userComment").classNameList.add("error-input")
                         console.log(error);
                     } 
                     document.getElementById(`${element.id}-error`).innerText = error
 
                     if(error===""){
-                        document.getElementById("userComment").classList.remove("error-input")
+                        document.getElementById("userComment").classNameList.remove("error-input")
                     }
                     break;
             }
