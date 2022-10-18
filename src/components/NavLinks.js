@@ -3,10 +3,10 @@ import React from 'react'
 const NavLinks = () => {
   return (
     <div className="nav-links">
-        <a href="./index.html" class="active">Home</a>
+        <a href="./index.html" className="active">Home</a>
         <a href="#">Categories</a>
         <a href="./product.html">Products</a>
-        <a href="./contact.html">Contact</a>
+        <a href="./contacts.html">Contacts</a>
     </div>
   )
 }
