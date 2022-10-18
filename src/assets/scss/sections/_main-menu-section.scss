@@ -1,8 +1,8 @@
 header{
     background-color: $color-grey-30;
-    position: fixed;
+    // position: fixed;
+    // z-index: 10;
     width: 100%;
-    z-index: 10;
 
     nav{
         width: 95vw;
@@ -29,7 +29,7 @@ header{
             grid-template-columns: 1fr 1fr 1fr;
         }
 
-        a{
+        .logo-link{
             height:min-content;
         }
 
@@ -42,7 +42,7 @@ header{
                 justify-content: center;
             }
 
-            a{
+            .nav-link{
                 color: $color-dark;
                 text-decoration: none;
                 font-weight: $font-weight-medium;
@@ -72,7 +72,7 @@ header{
                 justify-content: flex-end;
             }
 
-            a{
+            .menu-icon{
                 margin: 0 0.3rem;
                 text-decoration: none;
 
@@ -101,6 +101,7 @@ header{
                     .fa-bag-shopping{
                         font-size: 1.05em;
                     }
+
                     &:hover{
                         background-color: $color-dark;
                         
@@ -116,6 +117,16 @@ header{
                         right: -10px;
                     }
                 }
+            }
+
+            .active{
+                .circle{
+                    background-color: $color-dark;
+
+                    i{
+                        color: $color-white;
+                    }
+                }       
             }
         }
     }

@@ -1,15 +1,16 @@
 import React from 'react'
+import LgCard from '../components/LgCard1'
 import Footer from '../sections/Footer'
 import MainMenuSection from '../sections/MainMenuSection'
 
-const ContactsView = () => {
+const ProductsView = () => {
   return (
     <>
       <MainMenuSection />
-      <div>Contacts</div>
+      <div>Products</div>
       <Footer />
     </>
   )
 }
 
-export default ContactsView
+export default ProductsView

@@ -1,8 +1,11 @@
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
 // Core
 @import "./core/variables";
 @import "./core/breakpoints";
 @import "./core/colors";
-
+@import "./core/base";
 
 // Components
 @import "./components/button";
@@ -11,7 +14,7 @@
 @import "./components/page-title";
 
 // Section: all html pages
-@import "./sections/header";
+@import "./sections/main-menu-section";
 @import "./sections/footer";
 
 // Sections: index.html
@@ -34,17 +37,3 @@
 // @import "./assets/sections/product/product-overview";
 // @import "./assets/sections/product/product-in-deph-info";
 // @import "./assets/sections/product/related-products";
-
-
-
-
-// Styling for the whole document
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: $font-weight-regular;
-    color: $color-dark;
-}

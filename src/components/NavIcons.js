@@ -1,5 +1,6 @@
 import React from 'react'
 
+// This isn't in use
 const NavIcons = () => {
   return (
     <div className="nav-icons">

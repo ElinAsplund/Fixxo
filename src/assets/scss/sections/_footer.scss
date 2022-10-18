@@ -1,7 +1,8 @@
 footer{
     background-color: $color-grey-10;
     border-top: 1px solid $color-grey-40;
-
+    width: 100vw;
+    
     .container-fluid{
         display: flex;
         flex-direction: column;
@@ -9,12 +10,12 @@ footer{
         align-items: center;
         padding-top: 1rem;
         padding-bottom: 1rem;
-
+        
         .icon-holder{
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
-
+            
             a{
                 margin: 0 0.7rem;
 

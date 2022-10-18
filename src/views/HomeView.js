@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../sections/Header';
+// import Header from '../sections/Header';
 import ShowcaseTop from '../sections/ShowcaseTop';
 import ShowcaseBottom from '../sections/ShowcaseBottom';
 import FeaturedProducts from '../sections/FeaturedProducts';
@@ -10,11 +10,13 @@ import HighligtSale from '../sections/HighligtSale';
 import ChosenCategories from '../sections/ChosenCategories';
 import WebshopInfo from '../sections/WebshopInfo';
 import Footer from '../sections/Footer';
+import MainMenuSection from '../sections/MainMenuSection';
 
 const HomeView = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      <MainMenuSection />
       <ShowcaseTop />
       <ShowcaseBottom />
       <FeaturedProducts />

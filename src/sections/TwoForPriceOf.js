@@ -11,7 +11,7 @@ const TwoForPriceOf = () => {
     <div id="grid-justify-start">
         <div className="grid-holder" id="grid-holder-first">
             <div className="grid">
-                <LgCard1 />
+                <LgCard1 heading="2 FOR USD $29" />
                 <SmallCard />
                 <SmallCard />
                 <SmallCard />
@@ -27,7 +27,7 @@ const TwoForPriceOf = () => {
                 <SmallCard />
                 <SmallCard />
                 <SmallCard />
-                <LgCard2 />
+                <LgCard2 heading="2 FOR USD $49"/>
             </div>
         </div>
     </div>
