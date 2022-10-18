@@ -1,15 +1,15 @@
 import './App.min.css';
-import Header from './components/Header';
-import ShowcaseTop from './components/ShowcaseTop';
-import ShowcaseBottom from './components/ShowcaseBottom';
-import FeaturedProducts from './components/FeaturedProducts';
-import TopPicks from './components/TopPicks';
-import OurSpeciality from './components/OurSpeciality';
-import TwoForPriceOf from './components/TwoForPriceOf';
-import HighligtSale from './components/HighligtSale';
-import ChosenCategories from './components/ChosenCategories';
-import WebshopInfo from './components/WebshopInfo';
-import Footer from './components/Footer';
+import Header from './sections/Header';
+import ShowcaseTop from './sections/ShowcaseTop';
+import ShowcaseBottom from './sections/ShowcaseBottom';
+import FeaturedProducts from './sections/FeaturedProducts';
+import TopPicks from './sections/TopPicks';
+import OurSpeciality from './sections/OurSpeciality';
+import TwoForPriceOf from './sections/TwoForPriceOf';
+import HighligtSale from './sections/HighligtSale';
+import ChosenCategories from './sections/ChosenCategories';
+import WebshopInfo from './sections/WebshopInfo';
+import Footer from './sections/Footer';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../assets/images/fixxo-logo.svg'
-import NavLinks from './NavLinks'
-import NavIcons from './NavIcons'
+import NavLinks from '../components/NavLinks'
+import NavIcons from '../components/NavIcons'
 
 const Header = () => {
   return (

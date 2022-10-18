@@ -17,7 +17,7 @@ const TopPicks = () => {
                 <img src={maleUpclose} alt="male face upclose" id="top-pick-img-right"/>
                 <div className="text-holder" id="text-holder-right">
                     <h1>Let's Be<br/>Conscious</h1>
-                    <button class="btn-bg-white">SHOP NOW</button>
+                    <button className="btn-bg-white">SHOP NOW</button>
                 </div>
             </div>
         </div>

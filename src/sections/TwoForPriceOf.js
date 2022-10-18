@@ -1,7 +1,7 @@
 import React from 'react'
-import SmallCard from './SmallCard'
-import LgCard1 from './LgCard1'
-import LgCard2 from './LgCard2'
+import SmallCard from '../components/SmallCard'
+import LgCard1 from '../components/LgCard1'
+import LgCard2 from '../components/LgCard2'
 
 // How do I add diffrent id's to the cards?
 const TwoForPriceOf = () => {

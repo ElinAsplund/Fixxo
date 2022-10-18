@@ -1,5 +1,5 @@
 import React from 'react'
-import MiniCard from './MiniCard'
+import MiniCard from '../components/MiniCard'
 
 // How do I add diffrent id's to the cards?
 const ChosenCategories = () => {
