@@ -17,8 +17,8 @@ const MainMenuSection = () => {
             <div className="nav-icons">
                 <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass" />
                 <MenuIcon link="/compare" icon="fa-regular fa-code-compare fa-flip-horizontal" />
-                <MenuIcon link="/wishlist" icon="fa-regular fa-heart" />
-                <MenuIcon link="/shoppingcart" icon="fa-regular fa-bag-shopping" />
+                <MenuIcon link="/wishlist" icon="fa-regular fa-heart" quantity="1" />
+                <MenuIcon link="/shoppingcart" icon="fa-regular fa-bag-shopping" quantity="3" />
             </div>
         </nav>
     </header>
