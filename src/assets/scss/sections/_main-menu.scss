@@ -17,14 +17,18 @@ header{
             font-size: $font-size-35;
             color: $color-dark;
             text-decoration: none;
-            border: 1px solid black;
+            margin-left: 0.5rem;
+            // border: 1px solid black;
         }
 
         .nav-links{
             grid-area: nav-links;
-            display: grid;
-            // display: none;
-            border: 1px solid green;
+            background-color: $color-white;
+            filter: drop-shadow(0 2px 5px $color-grey-40);
+            border-radius: 5px;
+            margin: 0.5rem;
+            display: none;
+            // border: 1px solid green;
             
 
             .nav-link{
@@ -35,6 +39,7 @@ header{
 
                 &:hover{
                     color: $color-theme;
+                    filter: drop-shadow(0px 0px 8px $color-grey-40);
                 }
             }
 
@@ -48,7 +53,7 @@ header{
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            border: 1px solid hotpink;
+            // border: 1px solid hotpink;
 
             
             .menu-icon{
@@ -57,6 +62,7 @@ header{
                 background-color: $color-white;
                 width: 36px;
                 height: 36px;
+                padding: 0;
                 border-radius: $border-radius-rounded;
                 display: flex;
                 justify-content: center;
@@ -100,6 +106,41 @@ header{
                     color: $color-white;
                 }
             }
+
+            .btn-menu-icon{
+                border-radius: 5px;
+                margin-right: 0.5rem;
+                background-color: $color-dark;
+
+                i{
+                    color: $color-white;
+                }
+
+                @include lg{
+                    display: none;
+                }
+
+                &:hover{
+                    background-color: $color-white;
+                    i{
+                        color: $color-dark;
+                    }
+                }
+            }
+
+            .btn-menu-icon-white{
+                border-radius: 5px;
+                margin-right: 0.5rem;
+                background-color: $color-white;
+
+                i{
+                    color: $color-dark;
+                }
+
+                @include lg{
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -110,10 +151,17 @@ header{
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: "logo-link nav-links nav-icons";
 
+            .logo-link{
+                margin-left: 0;
+            }
+            
             .nav-links{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                background-color: unset;
+                filter: none;
+                border-radius: 0;
 
                 .nav-link{
                     margin: 0 2rem;
