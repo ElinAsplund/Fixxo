@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SmallCard = () => {
+const SmallCard = ({id}) => {
   return (
-    <div className="small-card">
+    <div className="small-card" id={id}>
         <div className="placeholder-area">
             <div className="card-menu">
                 <a href="#">

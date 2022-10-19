@@ -30,7 +30,10 @@ header{
         }
 
         .logo-link{
-            height:min-content;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-35;
+            color: $color-dark;
+            text-decoration: none;
         }
 
         .nav-links{

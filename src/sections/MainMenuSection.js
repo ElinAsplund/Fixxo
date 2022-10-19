@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../assets/images/fixxo-logo.svg'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '../components/MenuIcon'
 
@@ -7,7 +6,7 @@ const MainMenuSection = () => {
   return (
     <header className="gradient-grey">
         <nav>
-            <NavLink to="/" className="logo-link" end><img src={logo} alt='fixxo' /></NavLink>
+            <NavLink to="/" className="logo-link" end>Fixxo.</NavLink>
             <div className="nav-links">
                 <NavLink to="/" className="nav-link" end>Home</NavLink>
                 <NavLink to="/categories" className="nav-link" end>Categories</NavLink>

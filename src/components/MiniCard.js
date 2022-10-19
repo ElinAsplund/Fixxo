@@ -1,8 +1,8 @@
 import React from 'react'
 
-const MiniCard = () => {
+const MiniCard = ({classNames}) => {
   return (
-    <div className="mini-card first-coloumn">
+    <div className={classNames}>
     <a href="#" className="placeholder-area"></a>
     <div className="text-holder">
         <h2>Category</h2>

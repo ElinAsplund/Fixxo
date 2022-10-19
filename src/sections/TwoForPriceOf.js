@@ -1,7 +1,6 @@
 import React from 'react'
 import SmallCard from '../components/SmallCard'
-import LgCard1 from '../components/LgCard1'
-import LgCard2 from '../components/LgCard2'
+import LgCard from '../components/LgCard'
 
 // How do I add diffrent id's to the cards?
 const TwoForPriceOf = () => {
@@ -11,11 +10,11 @@ const TwoForPriceOf = () => {
     <div id="grid-justify-start">
         <div className="grid-holder" id="grid-holder-first">
             <div className="grid">
-                <LgCard1 heading="2 FOR USD $29" />
-                <SmallCard />
-                <SmallCard />
-                <SmallCard />
-                <SmallCard />
+                <LgCard heading="2 FOR USD $29" id="lg-card-1"/>
+                <SmallCard id="price-card-2" />
+                <SmallCard id="price-card-3" />
+                <SmallCard id="price-card-4"/>
+                <SmallCard id="price-card-5"/>
             </div>
         </div>
     </div>
@@ -23,11 +22,11 @@ const TwoForPriceOf = () => {
     <div id="grid-justify-end">
         <div className="grid-holder" id="grid-holder-second">
             <div className="grid">
-                <SmallCard />
-                <SmallCard />
-                <SmallCard />
-                <SmallCard />
-                <LgCard2 heading="2 FOR USD $49"/>
+                <SmallCard id="price-card-6" />
+                <SmallCard id="price-card-7" />
+                <SmallCard id="price-card-8" />
+                <SmallCard id="price-card-9" />
+                <LgCard heading="2 FOR USD $49" id="lg-card-2"/>
             </div>
         </div>
     </div>
