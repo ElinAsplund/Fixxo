@@ -14,7 +14,7 @@
 @import "./components/page-title";
 
 // Section: all html pages
-@import "./sections/main-menu-section";
+@import "./sections/main-menu";
 @import "./sections/footer";
 @import "./sections/breadcrumb";
 
@@ -34,6 +34,7 @@
 @import "./sections/contact/contact-form";
 
 // // Sections: product.html
+@import "./sections/product/current-offer-banner"
 // @import "./assets/sections/product/current-offer-banner";
 // @import "./assets/sections/product/product-overview";
 // @import "./assets/sections/product/product-in-deph-info";
