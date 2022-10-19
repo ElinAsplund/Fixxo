@@ -1,30 +1,20 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import MenuIcon from './MenuIcon'
 
 const SmallCard = ({id}) => {
   return (
     <div className="small-card" id={id}>
         <div className="placeholder-area">
             <div className="card-menu">
-                <a href="#">
-                    <div className="circle">
-                        <i className="fa-regular fa-heart"></i>
-                    </div>
-                </a>
-                <a href="#">
-                    <div className="circle">
-                        <i className="fa-regular fa-code-compare fa-flip-horizontal"></i>
-                    </div>
-                </a>
-                <a href="#">
-                    <div className="circle">
-                        <i className="fa-regular fa-bag-shopping"></i>            
-                    </div>
-                </a>
+                <MenuIcon link="/wishlist" icon="fa-regular fa-heart" />
+                <MenuIcon link="/compare" icon="fa-regular fa-code-compare fa-flip-horizontal" />
+                <MenuIcon link="/shoppingcart" icon="fa-regular fa-bag-shopping" />
             </div>
             <button className="btn-bg-theme">QUICK VIEW</button>
         </div>
         <h2>Category</h2>
-        <a href="./product.html" className="product-name">Mordern Black Blouse</a>
+        <NavLink to="/products" className="product-name" end>Mordern Black Blouse</NavLink>
         <div className="star-holder">
             <i className="fa-sharp fa-solid fa-star"></i>
             <i className="fa-sharp fa-solid fa-star"></i>
