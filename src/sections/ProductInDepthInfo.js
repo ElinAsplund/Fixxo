@@ -6,19 +6,23 @@ const ProductInDepthInfo = () => {
         <div className="container">
             <div className="product-top-menu">
                 <div className="header-holder">
-                    <a href="#" onclick="onClickHeadings(event)">
+                    <a href="#">
+                    {/* <a href="#" onclick="onClickHeadings(event)"> */}
                         Description
                         <div className="red-underline"></div>
                     </a>
-                    <a href="#" onClick="onClickHeadings(event)">
+                    <a href="#">
+                    {/* <a href="#" onClick="onClickHeadings(event)"> */}
                         Additional
                         <div className="red-underline"></div>
                     </a>
-                    <a href="#" onClick="onClickHeadings(event)">
+                    <a href="#">
+                    {/* <a href="#" onClick="onClickHeadings(event)"> */}
                         Shopping & Returns
                         <div className="red-underline"></div>
                     </a>
-                    <a href="#" onClick="onClickHeadings(event)">
+                    <a href="#">
+                    {/* <a href="#" onClick="onClickHeadings(event)"> */}
                         Reviews
                         <div className="red-underline"></div>
                     </a>

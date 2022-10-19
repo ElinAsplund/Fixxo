@@ -27,9 +27,9 @@ const ProductOverview = () => {
                       <div className="form-grid">
                           <label htmlFor="size" className="size">Size:</label>
                           <div className="size-button-holder btn-no-corners">
-                              <button className="size-button me-1" id="sSize">S</button>
-                              <button className="size-button me-1" id="mSize">M</button>
-                              <button className="size-button me-1" id="lSize">L</button>
+                              <button className="size-button me-2" id="sSize">S</button>
+                              <button className="size-button me-2" id="mSize">M</button>
+                              <button className="size-button me-2" id="lSize">L</button>
                               <button className="size-button" id="xlSize">XL</button>
                               {/* <button className="size-button me-1" onClick="toggleSizeS(event)" id="sSize">S</button>
                               <button className="size-button me-1" onClick="toggleSizeM(event)" id="mSize">M</button>
