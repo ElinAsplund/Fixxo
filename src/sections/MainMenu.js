@@ -2,9 +2,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '../components/MenuIcon'
 
-const MainMenuSection = () => {
+const MainMenuSection = ({className}) => {
   return (
-    <header className="gradient-grey">
+    <header className={className}>
         <nav>
             <NavLink to="/" className="logo-link" end>Fixxo.</NavLink>
             <div className="nav-links">

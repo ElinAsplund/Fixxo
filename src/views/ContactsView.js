@@ -1,12 +1,17 @@
 import React from 'react'
+import Breadcrumb from '../sections/Breadcrumb'
+import ContactForm from '../sections/ContactForm'
 import Footer from '../sections/Footer'
-import MainMenuSection from '../sections/MainMenuSection'
+import MainMenu from '../sections/MainMenu'
+import Map from "../sections/Map"
 
 const ContactsView = () => {
   return (
     <>
-      <MainMenuSection />
-      <div>Contacts</div>
+      <MainMenu className="bg-white" />
+      <Breadcrumb currentPage="Contacts" />
+      <Map />
+      <ContactForm />
       <Footer />
     </>
   )

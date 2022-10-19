@@ -10,13 +10,13 @@ import HighligtSale from '../sections/HighligtSale';
 import ChosenCategories from '../sections/ChosenCategories';
 import WebshopInfo from '../sections/WebshopInfo';
 import Footer from '../sections/Footer';
-import MainMenuSection from '../sections/MainMenuSection';
+import MainMenu from '../sections/MainMenu';
 
 const HomeView = () => {
   return (
     <>
       {/* <Header /> */}
-      <MainMenuSection />
+      <MainMenu className="gradient-grey" />
       <ShowcaseTop />
       <ShowcaseBottom />
       <FeaturedProducts />

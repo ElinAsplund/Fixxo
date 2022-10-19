@@ -2,7 +2,6 @@ import React from 'react'
 import SmallCard from '../components/SmallCard'
 import LgCard from '../components/LgCard'
 
-// How do I add diffrent id's to the cards?
 const TwoForPriceOf = () => {
   return (
     <section className="two-for-price-of ">

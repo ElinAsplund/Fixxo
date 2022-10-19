@@ -1,11 +1,13 @@
 import React from 'react'
+import Breadcrumb from '../sections/Breadcrumb'
 import Footer from '../sections/Footer'
-import MainMenuSection from '../sections/MainMenuSection'
+import MainMenu from '../sections/MainMenu'
 
 const ProductsView = () => {
   return (
     <>
-      <MainMenuSection />
+      <MainMenu className="bg-white" />
+      <Breadcrumb currentPage="Product Signal" />
       <div>Products</div>
       <Footer />
     </>

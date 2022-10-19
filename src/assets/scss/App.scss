@@ -16,6 +16,7 @@
 // Section: all html pages
 @import "./sections/main-menu-section";
 @import "./sections/footer";
+@import "./sections/breadcrumb";
 
 // Sections: index.html
 @import "./sections/index/showcase-top";
@@ -29,8 +30,8 @@
 @import "./sections/index/webshop-info";
 
 // // Sections: contact.html
-// @import "./assets/sections/contact/map";
-// @import "./assets/sections/contact/contact-form";
+@import "./sections/contact/map";
+@import "./sections/contact/contact-form";
 
 // // Sections: product.html
 // @import "./assets/sections/product/current-offer-banner";
