@@ -22,6 +22,7 @@
             transition: 0.5s ease-in-out;
         }
 
+        // to make the placeholder border disappear, when no url is added:
         img:not([src]){
             opacity: 0;
         } 
@@ -78,7 +79,7 @@
             }
         }
 
-        .btn-bg-theme{
+        .btn-quick-view{
             width: 100%;
             position: absolute;
             bottom: -10rem;

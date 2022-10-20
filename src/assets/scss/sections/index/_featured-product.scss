@@ -12,25 +12,15 @@
         .grid{
             display: grid;
             gap: 1.5rem;
-            grid-template-columns: 255px;
+            grid-template-columns: 80vw;
             grid-template-rows: repeat(2, 320px);
             
             
-            #featured-card-3{
-                display: none;
-            }
-            #featured-card-4{
-                display: none;
-            }
-            #featured-card-5{
-                display: none;
-            }
-            #featured-card-6{
-                display: none;
-            }
-            #featured-card-7{
-                display: none;
-            }
+            #featured-card-3,
+            #featured-card-4,
+            #featured-card-5,
+            #featured-card-6,
+            #featured-card-7,
             #featured-card-8{
                 display: none;
             }
@@ -40,9 +30,7 @@
                 height: 100%;
                 grid-template-columns: 1fr 1fr;
 
-                #featured-card-3{
-                    display: block;
-                }
+                #featured-card-3,
                 #featured-card-4{
                     display: block;
                 }
@@ -62,9 +50,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 350px);
                 
-                #featured-card-5{
-                    display: block;
-                }
+                #featured-card-5,
                 #featured-card-6{
                     display: block;
                 }
@@ -73,9 +59,7 @@
                 grid-template-columns: repeat(4, 1fr);
                 grid-template-rows: repeat(2, 350px);
 
-                #featured-card-7{
-                    display: block;
-                }
+                #featured-card-7,
                 #featured-card-8{
                     display: block;
                 }

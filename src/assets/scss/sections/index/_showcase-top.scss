@@ -4,11 +4,12 @@
     // @include md{            
         //     padding-top: 4rem;
         // }
-    background-image: url(https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    // background-image: url(https://images.pexels.com/photos/4871011/pexels-photo-4871011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+
+    // Trying out background-image: 
+    // background-image: url(https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
         
         .content-holder{
             width: 100%;
@@ -37,7 +38,7 @@
                 margin: 2rem auto;
                 
                 h1{
-                    color: $color-grey-10;
+                    // color: $color-grey-10;
                     font-size: $font-size-45;
                     font-weight: $font-weight-extrabold;
                     margin-bottom: 0.5rem;
@@ -49,7 +50,7 @@
             }
 
             p{
-                color: $color-grey-10;
+                // color: $color-grey-10;
                 font-size: $font-size-18;
                 margin-bottom: 1rem;
                 width: 80%;
