@@ -7,7 +7,7 @@ const FeaturedProducts = () => {
         <div className="container">
             <h3>Featured Products</h3>
             <div className="grid">
-                <SmallCard id='featured-card-1' />
+                <SmallCard id='featured-card-1' imgUrl="https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 <SmallCard id='featured-card-2' />
                 <SmallCard id='featured-card-3' />
                 <SmallCard id='featured-card-4' />

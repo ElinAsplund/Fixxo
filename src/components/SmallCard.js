@@ -2,10 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from './MenuIcon'
 
-const SmallCard = ({id}) => {
+const SmallCard = ({id, imgUrl}) => {
   return (
     <div className="small-card" id={id}>
         <div className="placeholder-area">
+            <img src={imgUrl}/>
             <div className="card-menu">
                 <MenuIcon link="/wishlist" icon="fa-regular fa-heart" />
                 <MenuIcon link="/compare" icon="fa-regular fa-code-compare fa-flip-horizontal" />
