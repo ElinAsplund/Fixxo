@@ -7,10 +7,10 @@ const SmallCard = ({id, imgUrl}) => {
     <div className="small-card" id={id}>
         <div className="placeholder-area">
             <img src={imgUrl}/>
-            <div className="card-menu">
-                <MenuIcon link="/wishlist" icon="fa-regular fa-heart" />
-                <MenuIcon link="/compare" icon="fa-regular fa-code-compare fa-flip-horizontal" />
-                <MenuIcon link="/shoppingcart" icon="fa-regular fa-bag-shopping" />
+            <div className="card-menu btn-no-corners">
+                <button className='btn-menu-icon'><i className='fa-regular fa-heart'></i></button>
+                <button className='btn-menu-icon'><i className='fa-regular fa-code-compare fa-flip-horizontal'></i></button>
+                <button className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button>
             </div>
             <button className="btn-bg-theme">QUICK VIEW</button>
         </div>
