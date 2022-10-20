@@ -3,12 +3,17 @@ import { NavLink } from 'react-router-dom'
 // import placeholder from "../assets/images/male-upclose.svg"
 
 const SmallCard = (item) => {
-    console.log(item)
 
+    // https://stackoverflow.com/questions/17546953/cant-access-object-property-even-though-it-shows-up-in-a-console-log
+    // console.log(Object.keys(item))
+
+    let objectString= JSON.stringify(item)
+    let newObject= JSON.parse(objectString)
+    
     return (
-        <div className="small-card">
+        <div className="small-card" id={newObject.item.idCardNumber}>
             <div className="placeholder-area">
-                <img src={item.imgUrl} />
+                <img src={newObject.item.imgUrl} />
                 <div className="card-menu btn-no-corners">
                     <button className='btn-menu-icon'><i className='fa-regular fa-heart'></i></button>
                     <button className='btn-menu-icon'><i className='fa-regular fa-code-compare fa-flip-horizontal'></i></button>
@@ -18,8 +23,8 @@ const SmallCard = (item) => {
                     <button className="btn-bg-theme btn-quick-view">QUICK VIEW</button>
                 </NavLink>
             </div>
-            <h2>varför{item.category}</h2>
-            <NavLink to="/products" className="product-name" end>hej{item.productName}</NavLink>
+            <h2>{newObject.item.category}</h2>
+            <NavLink to="/products" className="product-name" end>{newObject.item.productName}</NavLink>
             <div className="star-holder">
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
@@ -27,7 +32,7 @@ const SmallCard = (item) => {
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
             </div>
-            <p><span id="before-discount-price"></span> {item.price}funkar ej</p>
+            <p><span id="before-discount-price">{newObject.item.initialPrice}</span> {newObject.item.price}</p>
         </div>
     )
 }
