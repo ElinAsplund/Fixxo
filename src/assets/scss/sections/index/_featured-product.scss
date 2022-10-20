@@ -83,13 +83,13 @@
 
             .small-card{
                 .placeholder-area{
-                    .card-menu{
-                        top: -2px;
+                    // .card-menu{
+                    //     top: 0.6rem;
 
-                        @include md{
-                            top: 0.6rem;
-                        }
-                    }
+                    //     @include md{
+                    //         top: 0.6rem;
+                    //     }
+                    // }
 
                     button{
                         padding: 0.8rem 3rem;

@@ -101,13 +101,13 @@
                     }
 
                     .card-menu{
-                        top: -2px;
+                        // top: -2px;
 
                         @include sm{
-                            top: 3px;
+                            top: 10px;
                         }
                         @include xl {
-                            top: -2px;
+                            top: 0.6rem;
                         }
                     }
 
@@ -222,9 +222,9 @@
 #price-card-8{
     display: none;
 
-    @include md{
-        display: none;
-    }
+    // @include md{
+    //     display: none;
+    // }
 
     @include lg{
         display: block;
