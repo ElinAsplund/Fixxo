@@ -43,7 +43,7 @@ const HomeView = () => {
       <MainMenu className="gradient-grey" />
       <ShowcaseTop />
       <ShowcaseBottom />
-      <FeaturedProducts products={products} />
+      <FeaturedProducts className="featured-products" title="Featured Products" products={products} />
       <TopPicks />
       <OurSpeciality />
       <TwoForPriceOf productsTwo={productsTwo} productsThree={productsThree} />

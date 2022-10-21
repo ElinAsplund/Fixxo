@@ -18,7 +18,7 @@
 @import "./sections/footer";
 @import "./sections/breadcrumb";
 
-// Sections: index.html
+// Sections: index
 @import "./sections/index/showcase-top";
 @import "./sections/index/showcase-bottom";
 @import "./sections/index/featured-product";
@@ -29,12 +29,15 @@
 @import "./sections/index/chosen-categories";
 @import "./sections/index/webshop-info";
 
-// // Sections: contact.html
+// // Sections: contacts
 @import "./sections/contact/map";
 @import "./sections/contact/contact-form";
 
-// // Sections: product.html
-@import "./sections/product/current-offer-banner";
-@import "./sections/product/product-overview";
-@import "./sections/product/product-in-depth-info";
-@import "./sections/product/related-product";
+// // Sections: products
+@import "./sections/products/product-browsing";
+
+// // Sections: product-details
+@import "./sections/product-details/current-offer-banner";
+@import "./sections/product-details/product-overview";
+@import "./sections/product-details/product-in-depth-info";
+@import "./sections/product-details/related-product";

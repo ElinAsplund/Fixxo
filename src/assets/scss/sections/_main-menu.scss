@@ -1,17 +1,22 @@
-header{
+header {
     background-color: $color-grey-30;
+    position: fixed;
+    top: 0;
+    z-index: 10;
     width: 100%;
-
-    nav{
+    
+    nav {
         width: 95vw;
+        height: 60px;
         max-width: 1680px;
         margin: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: 60px min-content;
         grid-template-areas: "logo-link nav-icons"
-                            "nav-links nav-links";
+                                "nav-links nav-links";
 
-        .logo-link{
+        .logo-link {
             grid-area: logo-link;
             font-weight: $font-weight-bold;
             font-size: $font-size-35;
@@ -21,42 +26,42 @@ header{
             // border: 1px solid black;
         }
 
-        .nav-links{
+        .nav-links {
             grid-area: nav-links;
-            background-color: $color-white;
-            filter: drop-shadow(0 2px 5px $color-grey-40);
+            background-color: $color-grey-10;
+            filter: drop-shadow(0 2px 5px $color-grey-70);
             border-radius: 5px;
-            margin: 0.5rem;
             display: none;
+            height: 100%;
             // border: 1px solid green;
-            
 
-            .nav-link{
+
+            .nav-link {
                 color: $color-dark;
                 text-decoration: none;
                 font-weight: $font-weight-medium;
                 margin: 15px 15px;
 
-                &:hover{
+                &:hover {
                     color: $color-theme;
                     filter: drop-shadow(0px 0px 8px $color-grey-40);
                 }
             }
 
-            .active{
+            .active {
                 color: $color-theme;
-            }   
+            }
         }
 
-        .nav-icons{
+        .nav-icons {
             grid-area: nav-icons;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             // border: 1px solid hotpink;
 
-            
-            .menu-icon{
+
+            .menu-icon {
                 margin: 0 0.6rem;
                 text-decoration: none;
                 background-color: $color-white;
@@ -69,29 +74,29 @@ header{
                 align-items: center;
                 filter: drop-shadow(0 2px 5px $color-grey-40);
                 transition: 0.2s ease-in-out;
-                
-                .fa-bag-shopping{
+
+                .fa-bag-shopping {
                     font-size: 1.05em;
                 }
-                
+
                 &:nth-child(2),
-                &:nth-child(3){
+                &:nth-child(3) {
                     display: none;
 
-                    @include md{
+                    @include md {
                         display: flex;
                     }
                 }
 
-                &:hover{
+                &:hover {
                     background-color: $color-dark;
-                    
-                    i{
+
+                    i {
                         color: $color-white;
                     }
                 }
-                
-                .badge{
+
+                .badge {
                     position: absolute;
                     background-color: $color-theme;
                     top: -5px;
@@ -99,45 +104,46 @@ header{
                 }
             }
 
-            .active{
+            .active {
                 background-color: $color-dark;
 
-                i{
+                i {
                     color: $color-white;
                 }
             }
 
-            .btn-menu-icon{
+            .btn-menu-icon {
                 border-radius: 5px;
                 margin-right: 0.5rem;
                 background-color: $color-dark;
 
-                i{
+                i {
                     color: $color-white;
                 }
 
-                @include lg{
+                @include lg {
                     display: none;
                 }
 
-                &:hover{
+                &:hover {
                     background-color: $color-white;
-                    i{
+
+                    i {
                         color: $color-dark;
                     }
                 }
             }
 
-            .btn-menu-icon-white{
+            .btn-menu-icon-white {
                 border-radius: 5px;
                 margin-right: 0.5rem;
                 background-color: $color-white;
 
-                i{
+                i {
                     color: $color-dark;
                 }
 
-                @include lg{
+                @include lg {
                     display: none;
                 }
             }
@@ -145,17 +151,17 @@ header{
     }
 }
 
-@include lg{
-    header{
-        nav{
+@include lg {
+    header {
+        nav {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: "logo-link nav-links nav-icons";
 
-            .logo-link{
+            .logo-link {
                 margin-left: 0;
             }
-            
-            .nav-links{
+
+            .nav-links {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -163,10 +169,10 @@ header{
                 filter: none;
                 border-radius: 0;
 
-                .nav-link{
+                .nav-link {
                     margin: 0 2rem;
                 }
             }
-        }    
+        }
     }
 }

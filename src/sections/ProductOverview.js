@@ -1,7 +1,28 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
 
 const ProductOverview = () => {
+
+    const params = useParams()
+
+    // To get rid of the _ and capitalize the first letter:
+    // https://flexiple.com/javascript/javascript-capitalize-first-letter/#section2
+    let activeProduct = params.productName
+    activeProduct = activeProduct.replace(/_/gi, " ")
+    
+    let eachWord = activeProduct.split(" ")
+
+    for (let i = 0; i < eachWord.length; i++) {
+        eachWord[i] = eachWord[i].charAt(0).toUpperCase() + eachWord[i].slice(1);
+    }
+
+    activeProduct = eachWord.join(" ");
+
+    console.log(activeProduct);
+
+
+
   return (
     <section className="product-overview">
       <div className="container">
@@ -11,7 +32,7 @@ const ProductOverview = () => {
               <div className="sm-placeholder-area"></div>
               <div className="sm-placeholder-area"></div>
               <div className="product-order-overview">
-                  <h1>Modern Black Blouse</h1>
+                  <h1>{activeProduct}</h1>
                   <p className="small-print">SKU: 12345670 <span>BRAND: The Northland</span></p>
                   <div className="star-holder">
                       <i className="fa-sharp fa-solid fa-star"></i>

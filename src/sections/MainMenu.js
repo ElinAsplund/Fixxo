@@ -16,7 +16,7 @@ const MainMenuSection = ({className}) => {
             <div className={`nav-links ${ showMenu ? "d-grid" : "" }`}>
                 <NavLink to="/" className="nav-link" end>Home</NavLink>
                 <NavLink to="/categories" className="nav-link" end>Categories</NavLink>
-                <NavLink to="/products" className="nav-link" end>Products</NavLink>
+                <NavLink to="/products" className="nav-link">Products</NavLink>
                 <NavLink to="/contacts" className="nav-link" end>Contacts</NavLink>
             </div>
             <div className="nav-icons btn-no-corners">
