@@ -1,14 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-// import placeholder from "../assets/images/male-upclose.svg"
 
 const SmallCard = (item) => {
 
     // https://stackoverflow.com/questions/17546953/cant-access-object-property-even-though-it-shows-up-in-a-console-log
     // console.log(Object.keys(item))
 
-    let objectString= JSON.stringify(item)
-    let newObject= JSON.parse(objectString)
+    let objectString = JSON.stringify(item)
+    let newObject = JSON.parse(objectString)
     
     return (
         <div className="small-card" id={newObject.item.idCardNumber}>
