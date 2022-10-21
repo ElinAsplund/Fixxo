@@ -1,9 +1,6 @@
-import { useState } from 'react'
 import SmallCard from '../components/SmallCard'
 
 const FeaturedProducts =  ({className, title, products}) => {
-
-  console.log(title);
 
   return (
     <section className={className}>
