@@ -13,10 +13,10 @@
             }
 
             .header-holder{
-                display: inline-block;
+                display: block;
                 justify-content: space-between;
                 width: 100%;
-                
+                                
                 @include sm{
                     display: flex;
                 }
@@ -28,7 +28,6 @@
                     text-decoration: none;
                     margin-bottom: 0.5rem;
                     position: relative;
-                    margin-right: 0.5rem;
                     transition: 0.2s ease-in-out;
                     display: block;
                     

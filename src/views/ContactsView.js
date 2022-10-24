@@ -9,7 +9,7 @@ const ContactsView = () => {
   return (
     <>
       <MainMenu className="bg-white" />
-      <Breadcrumb className="breadcrumb" currentPage="Contacts" />
+      <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Contacts" />
       <Map />
       <ContactForm />
       <Footer />

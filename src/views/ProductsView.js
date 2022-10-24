@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Breadcrumb from '../sections/Breadcrumb'
 import FeaturedProducts from '../sections/FeaturedProducts'
 import Footer from '../sections/Footer'
 import MainMenu from '../sections/MainMenu'
@@ -23,7 +24,8 @@ const ProductsView = () => {
   return (
     <>
       <MainMenu className="bg-white" />
-      <FeaturedProducts className='product-browsing' title="Products" products={productsThree}/>
+      <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" />
+      <FeaturedProducts className='product-browsing mt-0' title="Products" products={productsThree}/>
       <Footer />
     </>
   )

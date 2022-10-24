@@ -1,16 +1,23 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import BreadcrumbLink from '../components/BreadcrumbLink'
 
-const Breadcrumb = ( {className, currentPage} ) => {
+const Breadcrumb = ( {className, hideOrShowProducts, currentPage} ) => {
   return (
     <section className={className}>
-        <div className="container">
+      <div className="container">
+        <ul>
+          <li>
             <NavLink to="/" className="home-icon" end>
-                <i className="fa-sharp fa-solid fa-house"></i> Home
+              <i className="fa-sharp fa-solid fa-house"></i> Home
             </NavLink>
-            <i className="fa-regular fa-chevron-right"></i>
+          </li>
+          <BreadcrumbLink hideOrShow={hideOrShowProducts} pageBefore="Products" />
+          <li>
             <h1>{currentPage}</h1>
-        </div>
+          </li>
+        </ul>
+      </div>
     </section>
   )
 }
