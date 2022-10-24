@@ -7,10 +7,27 @@
         width: 50%;
         height: 100%;
         transition: 0.2s ease-in-out;
+        overflow: hidden;
 
         &:hover{
             background-color: $color-grey-40;
+
+            img{
+                transform: scale(1.1);
+            }
         }
+
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            transition: 0.4s ease-in-out;
+        }
+
+        // to make the placeholder border disappear, when no url is added:
+        img:not([src]){
+            opacity: 0;
+        } 
     }
 
     .text-holder{
