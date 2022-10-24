@@ -1,34 +1,21 @@
 .product-overview{
     
     .grid {  
-        @include sm{
-            display: grid;
-            grid-auto-columns: 1fr; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 1.5rem; 
-            grid-template-areas: 
-              "lg-placeholder-area lg-placeholder-area lg-placeholder-area"
-              "lg-placeholder-area lg-placeholder-area lg-placeholder-area"
-              "lg-placeholder-area lg-placeholder-area lg-placeholder-area"
-              ". . ."
-              "product-order-overview product-order-overview product-order-overview"; 
-          }
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 1.5rem;
+        grid-auto-flow: row;
+        grid-template-areas:
+          "lg-placeholder-area lg-placeholder-area lg-placeholder-area product-order-overview product-order-overview product-order-overview"
+          "lg-placeholder-area lg-placeholder-area lg-placeholder-area product-order-overview product-order-overview product-order-overview"
+          "lg-placeholder-area lg-placeholder-area lg-placeholder-area product-order-overview product-order-overview product-order-overview"
+          ". . . product-order-overview product-order-overview product-order-overview";
           
-
         .lg-placeholder-area { 
             grid-area: lg-placeholder-area;
             background-color: $color-grey-20;
             transition: 0.2s ease-in-out;
-
-            width: 100%;
-            height: 400px;
-
-            @include md{
-                height: 500px;
-            }
-            @include lg{
-                height: 600px;
-            }
 
                 &:hover{
                     background-color: $color-grey-40;
@@ -42,7 +29,6 @@
                 font-weight: $font-weight-bold;
                 font-size: $font-size-24;
                 margin: 0;
-                margin-top: 12px;
             }
             .small-print{
                 font-weight: $font-weight-medium;
@@ -54,7 +40,7 @@
                 }
             }
             .star-holder{
-                margin: 12px 0;
+                margin: 1rem 0;
 
                 i{
                     color: $color-theme;
@@ -64,17 +50,10 @@
                 font-weight: $font-weight-semibold;
                 font-size: $font-size-18;
                 margin: 0;
-                margin-bottom: 1.5rem;
             }
             p{
                 margin-top: 1rem;
                 margin-bottom: 3rem;
-
-                display: none;
-
-                @include md{
-                    display: block;
-                }
 
                 a{
                     text-decoration: none;
@@ -90,11 +69,10 @@
                     grid-template-columns: 1fr 8fr;
                     grid-template-rows: min-content;
                     gap: 1.5rem;
-                    align-items: flex-start;
+                    align-items: center;
 
                     label{
                         font-weight: $font-weight-medium;
-                        margin-top: 5px;
                     }
 
                     .size-button-holder{
@@ -114,8 +92,8 @@
 
                     .form-select{
                         border: 1px $color-dark solid;
+                        width: 40%;
                         border-radius: 0;
-                        width: 220px;
 
                         &:focus{
                             box-shadow: 0 0 0 0.1rem $color-grey-60;
@@ -123,21 +101,11 @@
                     }
 
                     .qty-holder{
+                        display: flex;
                         font-weight: $font-weight-semibold;
-                        display: block;
-
-                        @include sm{
-                            display: flex;
-                        }
 
                         .qty-selector{
                             display: flex;
-                            height: 38px;
-
-                            @include sm{
-                                height: auto;
-                            }
-
 
                             .btn-qty{
                                 background-color: $color-white;
@@ -153,9 +121,7 @@
                                     background-color: $color-dark;
                                     color: $color-white;
                                 }
-
                             }
-                            
 
                             #qty-value{
                                 text-align: center;
@@ -174,14 +140,6 @@
 
                         .btn-add-to-cart{
                             margin-left: 1.5rem;
-                            
-                            margin-left: 0;
-                            margin-top: 1.5rem;
-
-                            @include sm{
-                                margin-top: 0;
-                                margin-left: 1.5rem;
-                            }
                         }
                     }
                 }
@@ -194,17 +152,11 @@
                 p{
                     margin: 0;
                     font-weight: $font-weight-medium;
-
-                    display: block;
                 }
 
                 .social-media-holder{
-                    display: flex;                    
-                    margin-left: 0.7rem;
-                    
-                    @include md {
-                        margin-left: 2rem;
-                    }
+                    display: flex;
+                    margin-left: 2rem;
 
                     a{
                         text-decoration: none;
@@ -235,20 +187,6 @@
             background-color: $color-grey-20;
             height: 150px;
             transition: 0.2s ease-in-out;
-            display: none;
-            
-            
-            @include sm{
-                display: block;
-            }
-
-            @include md{
-                height: 200px;
-            }
-
-            @include lg{
-                height: 220px;
-            }
 
                 &:hover{
                     background-color: $color-grey-40;
@@ -260,65 +198,4 @@
 .toggle-size{
     background-color: $color-dark !important;
     color: $color-white !important;
-}
-
-@include xl{
-    .product-overview{
-    
-        .grid {  
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: repeat(4, 1fr);
-            gap: 1.5rem;
-            grid-auto-flow: row;
-            grid-template-areas:
-              "lg-placeholder-area lg-placeholder-area lg-placeholder-area product-order-overview product-order-overview product-order-overview"
-              "lg-placeholder-area lg-placeholder-area lg-placeholder-area product-order-overview product-order-overview product-order-overview"
-              "lg-placeholder-area lg-placeholder-area lg-placeholder-area product-order-overview product-order-overview product-order-overview"
-              ". . . product-order-overview product-order-overview product-order-overview";
-              
-            .lg-placeholder-area { 
-                height: 100%;
-            }
-    
-            .product-order-overview { 
-                
-                h1{
-                    margin: 0;
-                }
-
-                .star-holder{
-                    margin: 1rem 0;
-                }
-                h2{
-                    margin: 0;
-                }
-                form{
-                    .form-grid{
-                        align-items: center;
-    
-                        label{
-                            margin-top: 0;
-                        }
-    
-                        .form-select{
-                            border: 1px $color-dark solid;
-                            width: 220px;
-                            border-radius: 0;
-    
-                            &:focus{
-                                box-shadow: 0 0 0 0.1rem $color-grey-60;
-                            }
-                        }
-    
-                        .qty-holder{    
-                            .qty-selector{
-                                height: auto;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

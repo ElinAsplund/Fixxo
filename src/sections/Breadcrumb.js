@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Breadcrumb = ( {currentPage} ) => {
+const Breadcrumb = ( {className, currentPage} ) => {
   return (
-    <section className="breadcrumb">
+    <section className={className}>
         <div className="container">
             <NavLink to="/" className="home-icon" end>
                 <i className="fa-sharp fa-solid fa-house"></i> Home

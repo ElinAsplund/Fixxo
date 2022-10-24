@@ -1,5 +1,6 @@
 .related-products{
     margin-bottom: 6rem;
+    display: none;
 
     .related-products-menu{
         display: flex;
@@ -23,7 +24,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                filter: drop-shadow(0 2px 5px $color-grey-30);
+                filter: drop-shadow(0 2px 5px $color-grey-40);
                 padding: 0;
                 margin-left: 1rem;
                 transition: 0.1s ease-in-out;

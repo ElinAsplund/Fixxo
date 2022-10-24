@@ -20,7 +20,7 @@ const ProductDetailsView = () => {
     <>
       <MainMenu className="bg-white" />
       <CurrentOfferBanner />
-      <Breadcrumb currentPage="Product Signal" />
+      <Breadcrumb className="breadcrumb mt-0" currentPage="Product Signal" />
       <ProductOverview />
       <ProductInDepthInfo />
       <RelatedProducts productsThree={productsThree} />
