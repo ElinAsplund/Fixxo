@@ -33,22 +33,17 @@
             img{
                 transform: scale(1.1);
             }
-
-            .card-menu{
-                right: 0.6rem;
-            }
-
-            button{
-                bottom: 0;
-                left: 0;
-            }
         }
 
         .card-menu{
             position: absolute;
-            right: -10rem;
+            right: 0.6rem;
             top: 0.6rem;
             transition: 0.3s ease-in-out;
+            
+            @include lg{                
+                right: -10rem;
+            }
 
             .btn-menu-icon{
                 padding: 0 !important;
@@ -82,9 +77,13 @@
         .btn-quick-view{
             width: 100%;
             position: absolute;
-            bottom: -10rem;
+            bottom: 0;
             left: 0;
-            transition: 0.3s ease-in-out;    
+            transition: 0.3s ease-in-out;
+            
+            @include lg{
+                bottom: -10rem;
+            }
         }
     }
 
@@ -125,4 +124,27 @@
             text-decoration: line-through;
         }
     }
+}
+
+@include lg{
+    .small-card{
+        .placeholder-area{                  
+            &:hover{
+                background-color: $color-grey-40;
+    
+                img{
+                    transform: scale(1.1);
+                }
+    
+                .card-menu{
+                    right: 0.6rem;
+                }
+    
+                button{
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+    }   
 }

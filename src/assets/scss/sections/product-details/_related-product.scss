@@ -96,6 +96,14 @@
                     display: block;
                 }
             }
+
+            .card-menu{
+                top: 5px;
+
+                @include md{
+                    top: 0.6rem;
+                }
+            }
         }
     }
 }

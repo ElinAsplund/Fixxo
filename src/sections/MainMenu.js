@@ -25,7 +25,6 @@ const MainMenuSection = ({className}) => {
                 <MenuIcon link="/wishlist" icon="fa-regular fa-heart" quantity="1" />
                 <MenuIcon link="/shoppingcart" icon="fa-regular fa-bag-shopping" quantity="3" />
                 <button onClick={toggleMenu} className={`menu-icon ${ showMenu ? "btn-menu-icon-white" : "btn-menu-icon" }`}><i className='fa-regular fa-bars'></i></button>
-                {/* <button onClick={toggleMenu} className='menu-icon btn-menu-icon'><i className='fa-regular fa-bars'></i></button> */}
             </div>
         </nav>
     </header>

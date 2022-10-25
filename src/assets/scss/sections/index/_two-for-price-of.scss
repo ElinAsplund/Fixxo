@@ -107,13 +107,21 @@
 
                         @include sm{
                             top: 10px;
+                            // right: 0.6rem;
                         }
                         @include xl {
                             top: 0.6rem;
+                            // right: -10rem;
                         }
                     }
 
-                    button{
+                    // &:hover{
+                    //     .card-menu{
+                    //         right: 0.6rem;
+                    //     }
+                    // }
+
+                    .btn-quick-view{
                         display: block;
 
                         @include sm{
