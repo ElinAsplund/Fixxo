@@ -3,120 +3,56 @@ import React, { useState } from 'react'
 const ContactForm = () => {
     const [contactForm, setContactForm] = useState({ name: '', email: '', comment: '', success: '' })
     const [formMessages, setFormMessages] = useState({})
-    const [submitted, setSubmitted] = useState(false)
 
-    // contactForm = values
-
-    const validate = (values) => {
-        const messages = {}
-
-        // ---REGULAR EXPRESSION---
-        // Checking if name has any numbers in it. ÅÄÖ do not work!
-        // https://stackoverflow.com/questions/18650972/javascript-validation-for-non-empty-number-and-alphabets
-        // With ÅÄÖ working:
-        // https://stackoverflow.com/questions/36366125/include-special-characters-like-%C3%B6-%C3%A4-%C3%BC-in-regular-expressions
-        const regex_name = /^[a-zA-Z\u0080-\uFFFF]*$/;
-
-        // Regular expression email x@x.xx
-        const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-        // Validation NAME
-        if (!values.name)
-            messages.name = "You must enter a name"
-        else if (!regex_name.test(values.name))
-            messages.name = "Your name can only contain letters"
-        else if (values.name.length < 2)
-            messages.name = "Your name must contain at least two letters"
-
-
-        // Validation EMAIL
-        if (!values.email)
-            messages.email = "You must enter an email"
-        else if (!regex_email.test(values.email))
-            messages.email = "You must enter a valid email"
-
-        // Validation COMMENT
-        if (!values.comment)
-            messages.comment = "You must enter a comment"
-        else if (values.comment.length < 5)
-            messages.comment = "Your comment must be longer then 5 characters"
-
-        // Validation of the whole FORM 
-        if (Object.keys(messages).length === 0) {
-            setSubmitted(true)
-            messages.success = "Thank you! Your comment has been successfully sent!"
-        } else
-            setSubmitted(false)
-
-        return messages;
-    }
 
     const handleChange = (e) => {
         const { id, value } = e.target
         setContactForm({ ...contactForm, [id]: value })
     }
 
+    const handleKeyUp = () => {
+        setFormMessages(testValidate())
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        console.log("click");
+        // To prevent sending an empty form when the user clicks the submit-button without entering any of the input-fields
+        let firstCheck = testValidate()
 
-        // if( formMessages.name.length===0 && formMessages.email.length===0 && formMessages.comment.length===0)
-        //     console.log("yaaas, beatch");
-
-        console.log(formMessages.name);
-        console.log(formMessages.email);
-        console.log(formMessages.comment);
-
-        // console.log(permanentVariabel);
-        // setFormMessages(validate(contactForm))
+        if(Object.values(formMessages).length === 0 && Object.values(firstCheck).length === 0){
+            let message = {}
+            message.success = "Thank you! Your comment has been successfully sent!"
+            setFormMessages(message);
+        }
     }
 
-
-    // ---EGET FÖRSÖK med onKeyUp---
-
-    // let permanentVariabel = {}
-
-    const handleKeyUp = (event) => {
-        setFormMessages(testValidate(event))
-
-        // let message = testValidate(event);
-        // setFormMessages(message);
-        // permanentVariabel = message;
-        // console.log(permanentVariabel);
-    }
-
-    const testValidate = (event) => {
+    const testValidate = () => {
         let messages = {}
         const regex_name = /^[a-zA-Z\u0080-\uFFFF]*$/;
         const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-        switch (event.type) {
-            case "submit":
-                break;
 
-            case "keyup":
-                // Validate NAME
-                if (!contactForm.name)
-                    messages.name = "You must enter a name"
-                else if (!regex_name.test(contactForm.name))
-                    messages.name = "Your name can only contain letters"
-                else if (contactForm.name.length < 2)
-                    messages.name = "Your name must contain at least two letters"
+        // Validate NAME
+        if (!contactForm.name)
+            messages.name = "You must enter a name"
+        else if (!regex_name.test(contactForm.name))
+            messages.name = "Your name can only contain letters"
+        else if (contactForm.name.length < 2)
+            messages.name = "Your name must contain at least two letters"
 
-                // Validate EMAIL
-                if (!contactForm.email)
-                    messages.email = "You must enter an email"
-                else if (!regex_email.test(contactForm.email))
-                    messages.email = "You must enter a valid email"
+        // Validate EMAIL
+        if (!contactForm.email)
+            messages.email = "You must enter an email"
+        else if (!regex_email.test(contactForm.email))
+            messages.email = "You must enter a valid email"
 
-                // Validation COMMENT
-                if (!contactForm.comment)
-                    messages.comment = "You must enter a comment"
-                else if (contactForm.comment.length < 5)
-                    messages.comment = "Your comment must be longer than 5 characters"
-                break;
-        }
+        // Validation COMMENT
+        if (!contactForm.comment)
+            messages.comment = "You must enter a comment"
+        else if (contactForm.comment.length < 5)
+            messages.comment = "Your comment must be longer than 5 characters"
+
         return messages;
     }
 
@@ -125,7 +61,6 @@ const ContactForm = () => {
         <section className="contact-form">
             <div className="container">
                 <h1>Come in Contact with Us</h1>
-                {/* <pre>{JSON.stringify(formMessages)}</pre> */}
                 <form onSubmit={handleSubmit} noValidate>
                     <div className="top-form">
                         <div className="input-holder">
@@ -157,3 +92,50 @@ const ContactForm = () => {
 }
 
 export default ContactForm
+
+
+    // const [submitted, setSubmitted] = useState(false)
+
+    // const validate = (values) => {
+    //     const messages = {}
+
+    //     // ---REGULAR EXPRESSION---
+    //     // Checking if name has any numbers in it. ÅÄÖ do not work!
+    //     // https://stackoverflow.com/questions/18650972/javascript-validation-for-non-empty-number-and-alphabets
+    //     // With ÅÄÖ working:
+    //     // https://stackoverflow.com/questions/36366125/include-special-characters-like-%C3%B6-%C3%A4-%C3%BC-in-regular-expressions
+    //     const regex_name = /^[a-zA-Z\u0080-\uFFFF]*$/;
+
+    //     // Regular expression email x@x.xx
+    //     const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    //     // Validation NAME
+    //     if (!values.name)
+    //         messages.name = "You must enter a name"
+    //     else if (!regex_name.test(values.name))
+    //         messages.name = "Your name can only contain letters"
+    //     else if (values.name.length < 2)
+    //         messages.name = "Your name must contain at least two letters"
+
+
+    //     // Validation EMAIL
+    //     if (!values.email)
+    //         messages.email = "You must enter an email"
+    //     else if (!regex_email.test(values.email))
+    //         messages.email = "You must enter a valid email"
+
+    //     // Validation COMMENT
+    //     if (!values.comment)
+    //         messages.comment = "You must enter a comment"
+    //     else if (values.comment.length < 5)
+    //         messages.comment = "Your comment must be longer then 5 characters"
+
+    //     // Validation of the whole FORM 
+    //     if (Object.keys(messages).length === 0) {
+    //         setSubmitted(true)
+    //         messages.success = "Thank you! Your comment has been successfully sent!"
+    //     } else
+    //         setSubmitted(false)
+
+    //     return messages;
+    // }
