@@ -3,6 +3,8 @@ import Footer from '../sections/Footer'
 import MainMenu from '../sections/MainMenu'
 
 const NotFoundView = () => {
+  window.top.document.title='404 | Fixxo.'
+
   return (
   <>
     <MainMenu className="bg-white" />

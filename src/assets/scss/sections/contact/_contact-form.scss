@@ -15,7 +15,7 @@
                 gap: 1rem;
                 margin-top: 1rem;
 
-                @include sm{
+                @include md{
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     grid-template-rows: min-content;
@@ -62,6 +62,7 @@
                 }
                 #successful-post{
                     margin-top: 1rem;
+                    color: #009b00;
                 }
             } 
         }

@@ -12,6 +12,8 @@ import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
 
 const HomeView = () => {
+
+  window.top.document.title='Fixxo.'
   
   // Beacuase I use id's in my styling, I need to separate the products-object to render out diffrent id's:
   const [products, setProducts] = useState([

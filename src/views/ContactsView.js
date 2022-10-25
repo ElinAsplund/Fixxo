@@ -6,6 +6,8 @@ import MainMenu from '../sections/MainMenu'
 import Map from "../sections/Map"
 
 const ContactsView = () => {
+  window.top.document.title='Contacts | Fixxo.'
+
   return (
     <>
       <MainMenu className="bg-white" />

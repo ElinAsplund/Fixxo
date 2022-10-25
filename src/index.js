@@ -7,7 +7,7 @@ root.render(
   // To aviod rendering things twice I removed <React.StrictMode>
   // https://andreasheissenberger.medium.com/react-components-render-twice-any-way-to-fix-this-91cf23961625
   
-  <React.StrictMode>
+  // <React.StrictMode>
     <App />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
