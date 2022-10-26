@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
 
 const ProductOverview = () => {
+    const [activeSizeS, setActiveSizeS] = useState(false)
+    const [activeSizeM, setActiveSizeM] = useState(false)
+    const [activeSizeL, setActiveSizeL] = useState(false)
+    const [activeSizeXL, setActiveSizeXL] = useState(false)
 
     const params = useParams()
 
@@ -20,6 +24,35 @@ const ProductOverview = () => {
     activeProduct = eachWord.join(" ");
 
     // console.log(activeProduct);
+
+    const toggleButtonS = (e) =>{
+        e.preventDefault()
+        setActiveSizeS(!activeSizeS)
+        setActiveSizeM(false)
+        setActiveSizeL(false)
+        setActiveSizeXL(false)
+    }
+    const toggleButtonM = (e) =>{
+        e.preventDefault()
+        setActiveSizeS(false)
+        setActiveSizeM(!activeSizeM)
+        setActiveSizeL(false)
+        setActiveSizeXL(false)
+    }
+    const toggleButtonL = (e) =>{
+        e.preventDefault()
+        setActiveSizeS(false)
+        setActiveSizeM(false)
+        setActiveSizeL(!activeSizeL)
+        setActiveSizeXL(false)
+    }
+    const toggleButtonXL = (e) =>{
+        e.preventDefault()
+        setActiveSizeS(false)
+        setActiveSizeM(false)
+        setActiveSizeL(false)
+        setActiveSizeXL(!activeSizeXL)
+    }
 
 
   return (
@@ -47,10 +80,10 @@ const ProductOverview = () => {
                         <div className="form-grid">
                             <label htmlFor="size" className="size">Size:</label>
                             <div className="size-button-holder btn-no-corners">
-                                <button className="size-button me-2" id="sSize">S</button>
-                                <button className="size-button me-2" id="mSize">M</button>
-                                <button className="size-button me-2" id="lSize">L</button>
-                                <button className="size-button" id="xlSize">XL</button>
+                                <button className={`size-button me-2 ${ activeSizeS ? "size-button-dark" : "" }`} onClick={toggleButtonS} id="sSize">S</button>
+                                <button className={`size-button me-2 ${ activeSizeM ? "size-button-dark" : "" }`} onClick={toggleButtonM} id="mSize">M</button>
+                                <button className={`size-button me-2 ${ activeSizeL ? "size-button-dark" : "" }`} onClick={toggleButtonL} id="lSize">L</button>
+                                <button className={`size-button ${ activeSizeXL ? "size-button-dark" : "" }`} onClick={toggleButtonXL} id="xlSize">XL</button>
                                 {/* <button className="size-button me-1" onClick="toggleSizeS(event)" id="sSize">S</button>
                                 <button className="size-button me-1" onClick="toggleSizeM(event)" id="mSize">M</button>
                                 <button className="size-button me-1" onClick="toggleSizeL(event)" id="lSize">L</button>
@@ -70,7 +103,7 @@ const ProductOverview = () => {
                                     <input className='input-qty' type="text" defaultValue="1" id="qty-value"/>
                                     <button className="btn-qty" id="increment-btn">+</button>
                                 </div>
-                                <button className="btn-bg-theme btn-add-to-cart">ADD TO CART</button>
+                                <button type='submit' className="btn-bg-theme btn-add-to-cart">ADD TO CART</button>
                                 {/* <button className="btn-bg-theme btn-add-to-cart" type="submit" onClick="klick()">ADD TO CART</button> */}
                             </div>
                         </div>
