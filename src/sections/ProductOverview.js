@@ -60,8 +60,8 @@ const ProductOverview = () => {
     const decrementCount = () => {
         let prevCount = count
 
-        if (prevCount<1)
-            prevCount=0
+        if (prevCount<2)
+            prevCount=1
         else
            prevCount-=1     
 

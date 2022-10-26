@@ -29,15 +29,18 @@
 @import "./sections/index/chosen-categories";
 @import "./sections/index/webshop-info";
 
-// // Sections: contacts
+// Sections: contacts
 @import "./sections/contact/map";
 @import "./sections/contact/contact-form";
 
-// // Sections: products
+// Sections: products
 @import "./sections/products/product-browsing";
 
-// // Sections: product-details
+// Sections: product-details
 @import "./sections/product-details/current-offer-banner";
 @import "./sections/product-details/product-overview";
 @import "./sections/product-details/product-in-depth-info";
 @import "./sections/product-details/related-product";
+
+// Views: page-not-found
+@import "./views/page-not-found"

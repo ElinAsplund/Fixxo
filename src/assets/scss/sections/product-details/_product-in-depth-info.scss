@@ -13,7 +13,7 @@
             }
 
             .header-holder{
-                display: block;
+                display: flex;
                 justify-content: space-between;
                 width: 100%;
                                 
@@ -29,15 +29,15 @@
                     justify-content: space-between;
                 }
 
-                a{
+                .more-info-btn{
                     color: $color-dark;
+                    background-color: unset;
                     font-size: $font-size-16;
                     font-weight: $font-weight-medium;
-                    text-decoration: none;
                     margin-bottom: 0.5rem;
+                    padding: 0;
                     position: relative;
                     transition: 0.2s ease-in-out;
-                    display: block;
                     
                     @include sm{
                         font-size: $font-size-16;

@@ -97,7 +97,13 @@ const ContactForm = () => {
             <div className="container">
                 {
                     canSubmit ? 
-                    (   <div className='success-message'>Thank you!<br/>Your comment has been successfully sent!</div>
+                    (   
+                        <> 
+                            <div className='success-holder'>
+                                <div><img src="https://img.freepik.com/free-vector/powerful-concept-illustration_114360-1212.jpg?w=826&t=st=1666815867~exp=1666816467~hmac=d05f01168c248329458f706ee0c5e1011c72af10847ec4bc34e7f5ecd98576e9"/></div>
+                                <div className='success-message'>Thank you!<br/>Your comment has been successfully sent!</div>
+                            </div>
+                        </>
                     )
                     :
                     (

@@ -5,23 +5,23 @@ const ProductInDepthInfo = () => {
     <section className="product-in-depth-info">
         <div className="container">
             <div className="product-top-menu">
-                <div className="header-holder">
-                    <a href="#">
+                <div className="header-holder btn-no-corners">
+                    <button className='more-info-btn'>
                         Description
                         <div className="red-underline"></div>
-                    </a>
-                    <a href="#">
+                    </button>
+                    <button className='more-info-btn d-none d-sm-block'>
                         Additional
                         <div className="red-underline"></div>
-                    </a>
-                    <a href="#">
+                    </button>
+                    <button className='more-info-btn'>
                         Shopping & Returns
                         <div className="red-underline"></div>
-                    </a>
-                    <a href="#">
+                    </button>
+                    <button className='more-info-btn'>
                         Reviews
                         <div className="red-underline"></div>
-                    </a>
+                    </button>
                 </div>
             </div>
             <div className="text-holder" id="description-Text">
