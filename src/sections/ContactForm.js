@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
 const ContactForm = () => {
-    // const [formMessages, setFormMessages] = useState({})
-    // const [submitted, setSubmitted] = useState(false)
+    const [canSubmit, setCanSubmit] = useState(false)
     const [contactForm, setContactForm] = useState({ name: '', email: '', comment: '', success: '' })
     const [errorName, setErrorName] = useState({name: ''})
     const [errorEmail, setErrorEmail] = useState({email: ''})
@@ -14,15 +13,13 @@ const ContactForm = () => {
         setContactForm({ ...contactForm, [id]: value })
     }
 
-    
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
+    // Validate onSubmit
+    const validateSubmit = () => {
         let nameOK = validateName()
         let emailOK = validateEmail()
         let commentOK = validateComment()
         let allOK = false
-        let message = {}
+        // let message = {}
 
         if (nameOK && emailOK && commentOK)
             allOK = true
@@ -30,16 +27,23 @@ const ContactForm = () => {
             allOK = false
             
         if (allOK===true){
-            console.log("message SENT")
-            message.submit = "Thank you! Your comment has been successfully sent!"
-            setSubmitMessage(message)
+            // console.log("message SENT")
+            // message.submit = "Thank you! Your comment has been successfully sent!"
+            // setSubmitMessage(message)
+            return true
         }else{
-            console.log("message NOT SENT")
-            message.submit = "Please fill out the form completely!"
-            setSubmitMessage(message)
+            // console.log("message NOT SENT")
+            // message.submit = "Please fill out the form properly!"
+            // setSubmitMessage(message)
+            return false
         }
     }
 
+    // Handle Submit
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setCanSubmit(validateSubmit())
+    }
 
     // Validate NAME
     const validateName = () =>{
@@ -91,32 +95,42 @@ const ContactForm = () => {
     return (
         <section className="contact-form">
             <div className="container">
-                <h1>Come in Contact with Us</h1>
-                <form onSubmit={handleSubmit} noValidate>
-                    <div className="top-form">
-                        <div className="input-holder">
-                            <label htmlFor="name" id="name-label" className="d-none">Name</label>
-                            <input type="text" id="name" placeholder="Your Name" value={contactForm.name} onChange={handleChange} onKeyUp={validateName} required />
-                            <div id="name-error" className="error-text">{errorName.name}</div>
-                        </div>
-                        <div className="input-holder">
-                            <label htmlFor="email" id="email-label" className="d-none">Email</label>
-                            <input type="email" id="email" className="" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} onKeyUp={validateEmail} required />
-                            <div id="email-error" className="error-text">{errorEmail.email}</div>
-                        </div>
-                    </div>
-                    <div className="bottom-form">
-                        <div className="textarea-holder">
-                            <label htmlFor="comment" id="Comment-label" className="d-none">Comment</label>
-                            <textarea id="comment" placeholder="Comment" value={contactForm.comment} onChange={handleChange} onKeyUp={validateComment} required></textarea>
-                            <div id="ucomment-error" className="error-text">{errorComment.comment}</div>
-                        </div>
-                        <div className="btn-no-corners">
-                            <button className="btn-bg-theme" type="submit">Post Comment</button>
-                            <div id="successful-post">{submitMessage.submit}</div>
-                        </div>
-                    </div>
-                </form>
+                {
+                    canSubmit ? 
+                    (   <div className='success-message'>Thank you!<br/>Your comment has been successfully sent!</div>
+                    )
+                    :
+                    (
+                        <>
+                            <h1>Come in Contact with Us</h1>
+                            <form onSubmit={handleSubmit} noValidate>
+                                <div className="top-form">
+                                    <div className="input-holder">
+                                        <label htmlFor="name" id="name-label" className="d-none">Name</label>
+                                        <input type="text" id="name" placeholder="Your Name" value={contactForm.name} onChange={handleChange} onKeyUp={validateName} className={`${ validateName ? "" : "error-input" }`} required />
+                                        <div id="name-error" className="error-text">{errorName.name}</div>
+                                    </div>
+                                    <div className="input-holder">
+                                        <label htmlFor="email" id="email-label" className="d-none">Email</label>
+                                        <input type="email" id="email" className="" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} onKeyUp={validateEmail} required />
+                                        <div id="email-error" className="error-text">{errorEmail.email}</div>
+                                    </div>
+                                </div>
+                                <div className="bottom-form">
+                                    <div className="textarea-holder">
+                                        <label htmlFor="comment" id="Comment-label" className="d-none">Comment</label>
+                                        <textarea id="comment" placeholder="Comment" value={contactForm.comment} onChange={handleChange} onKeyUp={validateComment} required></textarea>
+                                        <div id="ucomment-error" className="error-text">{errorComment.comment}</div>
+                                    </div>
+                                    <div className="btn-no-corners">
+                                        <button className="btn-bg-theme" type="submit">Post Comment</button>
+                                        <div id="successful-post">{submitMessage.submit}</div>
+                                    </div>
+                                </div>
+                            </form>
+                        </>
+                    )
+                }
             </div>
         </section>
     )

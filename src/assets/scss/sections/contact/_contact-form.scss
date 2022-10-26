@@ -3,6 +3,14 @@
         margin-top: 4rem;
         margin-bottom: 4rem;
 
+        .success-message{
+            display: grid;
+            text-align: center;
+            font-size: $font-size-18;
+            font-weight: $font-weight-medium;
+            color: green;
+        }
+
         h1{
             font-size: $font-size-18;
             font-weight: $font-weight-bold;
