@@ -7,7 +7,9 @@ const ProductOverview = () => {
     const [activeSizeM, setActiveSizeM] = useState(false)
     const [activeSizeL, setActiveSizeL] = useState(false)
     const [activeSizeXL, setActiveSizeXL] = useState(false)
+    const [count, setCount] = useState(1)
 
+// Displaying the right heading for the chosen product
     const params = useParams()
 
     // To get rid of the _ and capitalize the first letter:
@@ -22,38 +24,59 @@ const ProductOverview = () => {
     }
 
     activeProduct = eachWord.join(" ");
+    
 
-    // console.log(activeProduct);
-
-    const toggleButtonS = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
+    }
+
+// Toggle of size-buttons 
+    const toggleButtonS = (e) =>{
         setActiveSizeS(!activeSizeS)
         setActiveSizeM(false)
         setActiveSizeL(false)
         setActiveSizeXL(false)
     }
     const toggleButtonM = (e) =>{
-        e.preventDefault()
         setActiveSizeS(false)
         setActiveSizeM(!activeSizeM)
         setActiveSizeL(false)
         setActiveSizeXL(false)
     }
     const toggleButtonL = (e) =>{
-        e.preventDefault()
         setActiveSizeS(false)
         setActiveSizeM(false)
         setActiveSizeL(!activeSizeL)
         setActiveSizeXL(false)
     }
     const toggleButtonXL = (e) =>{
-        e.preventDefault()
         setActiveSizeS(false)
         setActiveSizeM(false)
         setActiveSizeL(false)
         setActiveSizeXL(!activeSizeXL)
     }
 
+// Qty-buttons
+    const decrementCount = () => {
+        let prevCount = count
+
+        if (prevCount<1)
+            prevCount=0
+        else
+           prevCount-=1     
+
+        setCount(prevCount)
+    }
+    const incrementCount = () => {
+        let prevCount = count
+
+        if (prevCount>=20)
+            prevCount=20
+        else
+            prevCount+=1     
+
+        setCount(prevCount)
+    }
 
   return (
     <section className="product-overview">
@@ -75,8 +98,7 @@ const ProductOverview = () => {
                     </div>
                     <h2>$35.00</h2>
                     <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (<a href="#">read more</a>)</p>
-                    <form>
-                        {/* <form onSubmit="onSubmitProduct(event)"> */}
+                    <form onSubmit={handleSubmit} noValidate>
                         <div className="form-grid">
                             <label htmlFor="size" className="size">Size:</label>
                             <div className="size-button-holder btn-no-corners">
@@ -84,10 +106,6 @@ const ProductOverview = () => {
                                 <button className={`size-button me-2 ${ activeSizeM ? "size-button-dark" : "" }`} onClick={toggleButtonM} id="mSize">M</button>
                                 <button className={`size-button me-2 ${ activeSizeL ? "size-button-dark" : "" }`} onClick={toggleButtonL} id="lSize">L</button>
                                 <button className={`size-button ${ activeSizeXL ? "size-button-dark" : "" }`} onClick={toggleButtonXL} id="xlSize">XL</button>
-                                {/* <button className="size-button me-1" onClick="toggleSizeS(event)" id="sSize">S</button>
-                                <button className="size-button me-1" onClick="toggleSizeM(event)" id="mSize">M</button>
-                                <button className="size-button me-1" onClick="toggleSizeL(event)" id="lSize">L</button>
-                                <button className="size-button" onClick="toggleSizeXL(event)" id="xlSize">XL</button> */}
                             </div>
                             <label htmlFor="color-select" className="color">Color:</label>
                                 <select className="form-select" aria-label="color selector" id="color-select">
@@ -99,12 +117,12 @@ const ProductOverview = () => {
                             <label htmlFor="qty" className="qty">Qty:</label>
                             <div className="qty-holder btn-no-corners">
                                 <div className="qty-selector">
-                                    <button className="btn-qty" id="decrement-btn">-</button>
-                                    <input className='input-qty' type="text" defaultValue="1" id="qty-value"/>
-                                    <button className="btn-qty" id="increment-btn">+</button>
+                                    <button className="btn-qty" id="decrement-btn" onClick={decrementCount}>-</button>
+                                    <span className='input-qty' id="qty-value">{count}</span>
+                                    {/* <input className='input-qty' type="text" defaultValue={count} id="qty-value" /> */}
+                                    <button className="btn-qty" id="increment-btn" onClick={incrementCount}>+</button>
                                 </div>
                                 <button type='submit' className="btn-bg-theme btn-add-to-cart">ADD TO CART</button>
-                                {/* <button className="btn-bg-theme btn-add-to-cart" type="submit" onClick="klick()">ADD TO CART</button> */}
                             </div>
                         </div>
                     </form>
