@@ -6,7 +6,7 @@ const CurrentOfferBanner = () => {
     <section className="current-offer-banner">
         <div className="container">
             <div className="heading-holder">
-                <NavLink to="/currentoffer" className="current-offer-link">Get 25% OFF at the Fixxo Selection - Shop&nbsp;Now!</NavLink>
+                <NavLink to="/current_offer" className="current-offer-link">Get 25% OFF at the Fixxo Selection - Shop&nbsp;Now!</NavLink>
             </div>
         </div>
     </section>

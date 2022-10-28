@@ -13,7 +13,7 @@ const ContactForm = () => {
         setContactForm({ ...contactForm, [id]: value })
     }
 
-    // Validate onSubmit
+    // ---Validate onSubmit---
     const validateSubmit = () => {
         let nameOK = validateName()
         let emailOK = validateEmail()
@@ -39,13 +39,13 @@ const ContactForm = () => {
         }
     }
 
-    // Handle Submit
+    // ---Handle Submit---
     const handleSubmit = (e) => {
         e.preventDefault()
         setCanSubmit(validateSubmit())
     }
 
-    // Validate NAME
+    // ---Validate NAME---
     const validateName = () =>{
         let error = {}
         const regex_name = /^[a-zA-Z\u0080-\uFFFF]*$/;
@@ -59,10 +59,11 @@ const ContactForm = () => {
     
         setErrorName(error)
 
+        // error === {} ? true : false;
         return Object.keys(error).length === 0 ? true : false;
     }
 
-    // Validate EMAIL
+    // ---Validate EMAIL---
     const validateEmail = () =>{
         let error = {}
         const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -74,10 +75,11 @@ const ContactForm = () => {
     
         setErrorEmail(error)
         
+        // error === {} ? true : false;
         return Object.keys(error).length === 0 ? true : false;
     }
 
-    // Validate COMMENT
+    // ---Validate COMMENT---
     const validateComment = () =>{
         let error = {}
 
@@ -113,19 +115,19 @@ const ContactForm = () => {
                                 <div className="top-form">
                                     <div className="input-holder">
                                         <label htmlFor="name" id="name-label" className="d-none">Name</label>
-                                        <input type="text" id="name" placeholder="Your Name" value={contactForm.name} onChange={handleChange} onKeyUp={validateName} className={`${ validateName ? "" : "error-input" }`} required />
+                                        <input type="text" id="name" placeholder="Your Name" value={contactForm.name} onChange={handleChange} onKeyUp={validateName} className={`${ (errorName.name) ? "error-input" : "" }`} required />
                                         <div id="name-error" className="error-text">{errorName.name}</div>
                                     </div>
                                     <div className="input-holder">
                                         <label htmlFor="email" id="email-label" className="d-none">Email</label>
-                                        <input type="email" id="email" className="" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} onKeyUp={validateEmail} required />
+                                        <input type="email" id="email" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} onKeyUp={validateEmail} className={`${ (errorEmail.email) ? "error-input" : "" }`}  required />
                                         <div id="email-error" className="error-text">{errorEmail.email}</div>
                                     </div>
                                 </div>
                                 <div className="bottom-form">
                                     <div className="textarea-holder">
                                         <label htmlFor="comment" id="Comment-label" className="d-none">Comment</label>
-                                        <textarea id="comment" placeholder="Comment" value={contactForm.comment} onChange={handleChange} onKeyUp={validateComment} required></textarea>
+                                        <textarea id="comment" placeholder="Comment" value={contactForm.comment} onChange={handleChange} onKeyUp={validateComment} className={`${ (errorComment.comment) ? "error-input" : "" }`}  required></textarea>
                                         <div id="ucomment-error" className="error-text">{errorComment.comment}</div>
                                     </div>
                                     <div className="btn-no-corners">
