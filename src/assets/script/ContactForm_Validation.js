@@ -8,7 +8,7 @@ export const submitData = async (url, method, data, contentType = 'application/j
         body: data
     })
 
-    console.log(res.status);
+    console.log("fetch status: " + res.status);
 
     if(res.status === 200)
         return true
