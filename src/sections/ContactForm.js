@@ -124,16 +124,14 @@ const ContactForm = () => {
                                         <div id="email-error" className="error-text">{errorEmail.email}</div>
                                     </div>
                                 </div>
-                                <div className="bottom-form">
+                                <div className="bottom-form btn-no-corners">
                                     <div className="textarea-holder">
                                         <label htmlFor="comment" id="Comment-label" className="d-none">Comment</label>
                                         <textarea id="comment" placeholder="Comment" value={contactForm.comment} onChange={handleChange} onKeyUp={validateComment} className={`${ (errorComment.comment) ? "error-input" : "" }`}  required></textarea>
                                         <div id="ucomment-error" className="error-text">{errorComment.comment}</div>
                                     </div>
-                                    <div className="btn-no-corners">
-                                        <button className="btn-bg-theme" type="submit">Post Comment</button>
-                                        <div id="successful-post">{submitMessage.submit}</div>
-                                    </div>
+                                    <button className="btn-bg-theme" type="submit">Post Comment</button>
+                                    <div id="successful-post">{submitMessage.submit}</div>
                                 </div>
                             </form>
                         </>

@@ -73,6 +73,11 @@
                 }
                 button{
                     margin-top: 1rem;
+                    width: 100%;
+
+                    @include md{
+                        width: 220px;
+                    }
                 }
                 #successful-post{
                     margin-top: 1rem;
