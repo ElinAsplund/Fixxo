@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+import { json } from 'react-router-dom'
+import { submitData } from '../assets/script/ContactForm_Validation'
 
 const ContactForm = () => {
     const [canSubmit, setCanSubmit] = useState(false)
-    const [contactForm, setContactForm] = useState({ name: '', email: '', comment: '', success: '' })
-    const [errorName, setErrorName] = useState({name: ''})
-    const [errorEmail, setErrorEmail] = useState({email: ''})
-    const [errorComment, setErrorComment] = useState({comment: ''})
-    const [submitMessage, setSubmitMessage] = useState({submit: ''})
+    const [failedSubmit, setFailedSubmit] = useState(false)
+    const [contactForm, setContactForm] = useState({ name: '', email: '', comments: '' })
+    const [errorName, setErrorName] = useState({})
+    const [errorEmail, setErrorEmail] = useState({})
+    const [errorComments, setErrorComments] = useState({})
+    const [submitMessage, setSubmitMessage] = useState('')
     
     const handleChange = (e) => {
         const { id, value } = e.target
@@ -17,27 +20,34 @@ const ContactForm = () => {
     const validateSubmit = () => {
         let nameOK = validateName()
         let emailOK = validateEmail()
-        let commentOK = validateComment()
+        let commentsOK = validateComments()
         let allOK = false
-        // let message = {}
 
-        if (nameOK && emailOK && commentOK)
+        if (nameOK && emailOK && commentsOK)
             allOK = true
         else
             allOK = false
             
         if (allOK===true){
-            // console.log("message SENT")
-            // message.submit = "Thank you! Your comment has been successfully sent!"
-            // setSubmitMessage(message)
+            let json = JSON.stringify(contactForm)
+
+            setContactForm({ name: '', email: '', comments: '' })
+            setErrorName({})
+            setErrorEmail({})
+            setErrorComments({})
+
+            if(submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json, )){
+                setCanSubmit(true)
+                setFailedSubmit(false)
+            }else{
+                setCanSubmit(false)
+                setFailedSubmit(true) 
+            }
             return true
-        }else{
-            // console.log("message NOT SENT")
-            // message.submit = "Please fill out the form properly!"
-            // setSubmitMessage(message)
+        }else
             return false
-        }
     }
+
 
     // ---Handle Submit---
     const handleSubmit = (e) => {
@@ -79,16 +89,16 @@ const ContactForm = () => {
         return Object.keys(error).length === 0 ? true : false;
     }
 
-    // ---Validate COMMENT---
-    const validateComment = () =>{
+    // ---Validate COMMENTS---
+    const validateComments = () =>{
         let error = {}
 
-        if (!contactForm.comment)
-            error.comment = "You must enter a comment"
-        else if (contactForm.comment.length < 5)
-            error.comment = "Your comment must be longer than 5 characters"
+        if (!contactForm.comments)
+            error.comments = "You must enter a comment"
+        else if (contactForm.comments.length < 5)
+            error.comments = "Your comment must be longer than 5 characters"
     
-        setErrorComment(error)
+        setErrorComments(error)
 
         // error === {} ? true : false;
         return Object.keys(error).length === 0 ? true : false;
@@ -108,7 +118,7 @@ const ContactForm = () => {
                         </>
                     )
                     :
-                    (
+                    (                        
                         <>
                             <h1>Come in Contact with Us</h1>
                             <form onSubmit={handleSubmit} noValidate>
@@ -126,12 +136,12 @@ const ContactForm = () => {
                                 </div>
                                 <div className="bottom-form btn-no-corners">
                                     <div className="textarea-holder">
-                                        <label htmlFor="comment" id="Comment-label" className="d-none">Comment</label>
-                                        <textarea id="comment" placeholder="Comment" value={contactForm.comment} onChange={handleChange} onKeyUp={validateComment} className={`${ (errorComment.comment) ? "error-input" : "" }`}  required></textarea>
-                                        <div id="ucomment-error" className="error-text">{errorComment.comment}</div>
+                                        <label htmlFor="comments" id="Comments-label" className="d-none">Comment</label>
+                                        <textarea id="comments" placeholder="Comment" value={contactForm.comments} onChange={handleChange} onKeyUp={validateComments} className={`${ (errorComments.comments) ? "error-input" : "" }`}  required></textarea>
+                                        <div id="comments-error" className="error-text">{errorComments.comments}</div>
                                     </div>
                                     <button className="btn-bg-theme" type="submit">Post Comment</button>
-                                    <div id="successful-post">{submitMessage.submit}</div>
+                                    <div id="successful-post">{submitMessage}</div>
                                 </div>
                             </form>
                         </>
