@@ -69,6 +69,11 @@
                 margin-top: 1.5rem;
                 height: 190px;
                 
+                // removing overflowing cards
+                &:nth-child(n+9){
+                    display: none;
+                }
+
                 // first-column
                 &:nth-child(4),
                 &:nth-child(7),

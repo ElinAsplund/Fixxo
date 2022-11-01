@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
 import SmallCard from '../components/SmallCard'
 
-const RelatedProducts = ({productsThree}) => {
+const RelatedProducts = ({products}) => {
 
   return (
     <section className="related-products">
@@ -19,7 +18,7 @@ const RelatedProducts = ({productsThree}) => {
             </div>    
             <div className="grid">
             {
-                productsThree.map(product => <SmallCard item={product} key={product.id} />)
+                products.map(product => <SmallCard item={product} key={product.id} />)
             }
             </div>
         </div>
