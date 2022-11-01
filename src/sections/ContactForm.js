@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { submitData } from '../assets/script/ContactForm_Validation'
 
+// I have had some major help from my classmate Sara Lindström while structuring up my form validation.
+
 const ContactForm = () => {
     const [canSubmit, setCanSubmit] = useState(false)
     const [failedSubmit, setFailedSubmit] = useState(false)
@@ -17,45 +19,52 @@ const ContactForm = () => {
 
     // ---Validate onSubmit---
     const validateSubmit = async () => {
+        // add async?
         let nameOK = validateName()
         let emailOK = validateEmail()
         let commentsOK = validateComments()
         let allOK = false
 
-        if (nameOK && emailOK && commentsOK)
+        console.log("nameOK: " + nameOK + " emailOK: " + emailOK + " commentsOK: " + commentsOK);
+
+        if (nameOK===true && emailOK===true && commentsOK===true)
             allOK = true
         else
             allOK = false
             
+        console.log("allOK: " + allOK)
+            
         if (allOK===true){
             let json = JSON.stringify(contactForm)
 
-            // setContactForm({ name: '', email: '', comments: '' })
-            // setErrorName({})
-            // setErrorEmail({})
-            // setErrorComments({})
+            setContactForm({ name: '', email: '', comments: '' })
+            setErrorName({})
+            setErrorEmail({})
+            setErrorComments({})
 
             let result = await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json, )
             console.log("await result: " + result);
 
-            if(result){
+            // if(true){
+            if(await result){
                 setCanSubmit(true)
                 setFailedSubmit(false)
             }else{
                 setCanSubmit(false)
                 setFailedSubmit(true)
             }
+            console.log("validateSubmit: true")
             return true
-        }else
+        }else{
+            console.log("validateSubmit: false")
             return false
+        }
     }
-
 
     // ---Handle Submit---
     const handleSubmit = (e) => {
         e.preventDefault()
         setCanSubmit(validateSubmit())
-        console.log(canSubmit);
     }
 
     // ---Validate NAME---
@@ -131,6 +140,7 @@ const ContactForm = () => {
                                 canSubmit ? (
                                 <h1 className="alert alert-success">Message sent!</h1>) : (<></>)
                             }
+                            <pre>{"canSubmit: " + JSON.stringify(canSubmit) + " failedSubmit: " + JSON.stringify(failedSubmit)} </pre>
                             <h1>Come in Contact with Us</h1>
                             <form onSubmit={handleSubmit} noValidate>
                                 <div className="top-form">
