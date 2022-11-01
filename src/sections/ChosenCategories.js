@@ -14,7 +14,7 @@ const ChosenCategories = () => {
                 <h3 className="middle-coloumn">Best Selling Products</h3>
                 <h3 className="last-coloumn">Top Reacted Products</h3>
                 {
-                  products.map(product => <MiniCard item={product} key={product.id} />)
+                  products.map(product => <MiniCard item={product} key={product.articleNumber} />)
                 }
             </div>
         </div>

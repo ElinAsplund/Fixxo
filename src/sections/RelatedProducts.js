@@ -22,7 +22,7 @@ const RelatedProducts = () => {
                 </div>    
                 <div className="grid">
                 {
-                    products.map(product => <SmallCard item={product} key={product.id} />)
+                    products.map(product => <SmallCard item={product} key={product.articleNumber} />)
                 }
                 </div>
             </div>
