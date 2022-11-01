@@ -3,7 +3,7 @@ import FeaturedProducts from '../sections/FeaturedProducts'
 import Footer from '../sections/Footer'
 import MainMenu from '../sections/MainMenu'
 
-const ProductsView = ({items = []}) => {
+const ProductsView = () => {
 
   window.top.document.title='Products | Fixxo.'
 
@@ -11,7 +11,7 @@ const ProductsView = ({items = []}) => {
     <>
       <MainMenu className="bg-white" />
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" />
-      <FeaturedProducts className='product-browsing mt-0' title="Products" products={items}/>
+      <FeaturedProducts className='product-browsing mt-0' title="Products" />
       <Footer />
     </>
   )

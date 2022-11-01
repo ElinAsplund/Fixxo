@@ -7,7 +7,7 @@ import ProductInDepthInfo from '../sections/ProductInDepthInfo'
 import ProductOverview from '../sections/ProductOverview'
 import RelatedProducts from '../sections/RelatedProducts'
 
-const ProductDetailsView = ({items = []}) => {
+const ProductDetailsView = () => {
   
   const params = useParams()
   
@@ -33,7 +33,7 @@ const ProductDetailsView = ({items = []}) => {
       <CurrentOfferBanner />
       <ProductOverview />
       <ProductInDepthInfo />
-      <RelatedProducts products={items} />
+      <RelatedProducts />
       <Footer />
     </>
   )

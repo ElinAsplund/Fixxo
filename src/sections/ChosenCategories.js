@@ -1,8 +1,10 @@
 import MiniCard from '../components/MiniCard'
+import { ProductContext } from '../contexts/contexts'
+import { useContext } from 'react'
 
-const ChosenCategories = ({products}) => {
+const ChosenCategories = () => {
 
-
+  const products = useContext(ProductContext)
 
   return (
     <section className="chosen-categories ">

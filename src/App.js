@@ -5,7 +5,9 @@ import ContactsView from './views/ContactsView';
 import NotFoundView from './views/NotFoundView';
 import ProductsView from './views/ProductsView';
 import ProductDetailsView from './views/ProductDetailsView';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
+import { ProductContext } from './contexts/contexts';
+
 
 function App() {
   const [allProducts, setAllProducts] = useState([
@@ -25,13 +27,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomeView items={allProducts} />} />
-        <Route path="/contacts" element={<ContactsView />} />
-        <Route path="/products/" element={<ProductsView items={allProducts} />} />
-        <Route path="/products/:productName" element={<ProductDetailsView items={allProducts} />} />
-        <Route path="*" element={<NotFoundView />} />
-      </Routes>
+      <ProductContext.Provider value = {allProducts}>
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+          <Route path="/contacts" element={<ContactsView />} />
+          <Route path="/products/" element={<ProductsView />} />
+          <Route path="/products/:productName" element={<ProductDetailsView items={allProducts} />} />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
+      </ProductContext.Provider>
     </BrowserRouter>
   );
 }

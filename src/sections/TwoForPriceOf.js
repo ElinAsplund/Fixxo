@@ -1,34 +1,38 @@
 import SmallCard from '../components/SmallCard'
 import LgCard from '../components/LgCard'
+import { ProductContext } from '../contexts/contexts'
+import { useContext } from 'react'
 
-const TwoForPriceOf = ({products}) => {
+const TwoForPriceOf = () => {
 
-  return (
-    <section className="two-for-price-of ">
-        {/* grid 1 */}
-        <div id="grid-justify-start">
-            <div className="grid-holder" id="grid-holder-first">
-                <div className="grid-1">
-                    <LgCard heading="2 FOR USD $29" id="lg-card-1"/>
-                    {
-                        products.map(product => <SmallCard item={product} key={product.id} />)
-                    } 
+    const products = useContext(ProductContext)
+
+    return (
+        <section className="two-for-price-of ">
+            {/* grid 1 */}
+            <div id="grid-justify-start">
+                <div className="grid-holder" id="grid-holder-first">
+                    <div className="grid-1">
+                        <LgCard heading="2 FOR USD $29" id="lg-card-1"/>
+                        {
+                            products.map(product => <SmallCard item={product} key={product.id} />)
+                        } 
+                    </div>
                 </div>
             </div>
-        </div>
-        {/* grid 2 */}
-        <div id="grid-justify-end">
-            <div className="grid-holder" id="grid-holder-second">
-                <div className="grid-2">
-                    {
-                        products.map(productTwo => <SmallCard item={productTwo} key={productTwo.id} />)
-                    } 
-                    <LgCard heading="2 FOR USD $49" id="lg-card-2"/>
+            {/* grid 2 */}
+            <div id="grid-justify-end">
+                <div className="grid-holder" id="grid-holder-second">
+                    <div className="grid-2">
+                        {
+                            products.map(productTwo => <SmallCard item={productTwo} key={productTwo.id} />)
+                        } 
+                        <LgCard heading="2 FOR USD $49" id="lg-card-2"/>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-  )
+        </section>
+    )
 }
 
 export default TwoForPriceOf

@@ -1,6 +1,10 @@
+import { useContext } from 'react'
 import SmallCard from '../components/SmallCard'
+import { ProductContext } from '../contexts/contexts'
 
-const FeaturedProducts =  ({className, title, products}) => {
+const FeaturedProducts =  ({className, title}) => {
+
+  const products = useContext(ProductContext)
 
   return (
     <section className={className}>

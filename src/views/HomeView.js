@@ -10,7 +10,7 @@ import WebshopInfo from '../sections/WebshopInfo';
 import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
 
-const HomeView = ({items = []}) => {
+const HomeView = () => {
 
   window.top.document.title='Fixxo.'
 
@@ -19,12 +19,12 @@ const HomeView = ({items = []}) => {
       <MainMenu className="gradient-grey" />
       <ShowcaseTop />
       <ShowcaseBottom />
-      <FeaturedProducts className="featured-products" title="Featured Products" products={items} />
+      <FeaturedProducts className="featured-products" title="Featured Products" />
       <TopPicks />
       <OurSpeciality />
-      <TwoForPriceOf products={items} />
+      <TwoForPriceOf />
       <HighligtSale />
-      <ChosenCategories products={items} />
+      <ChosenCategories />
       <WebshopInfo />
       <Footer />
     </>
