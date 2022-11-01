@@ -13,26 +13,13 @@
             display: grid;
             gap: 1.5rem;
             grid-template-columns: 80vw;
-            grid-template-rows: repeat(2, 320px);
+            grid-auto-rows: 320px;
 
-            #featured-card-3,
-            #featured-card-4,
-            #featured-card-5,
-            #featured-card-6,
-            #featured-card-7,
-            #featured-card-8{
-                display: none;
-            }
             
             @media (min-width: 520px){
                 width: 100%;
                 height: 100%;
                 grid-template-columns: 1fr 1fr;
-
-                #featured-card-3,
-                #featured-card-4{
-                    display: block;
-                }
             }
 
             @include sm{
@@ -41,40 +28,49 @@
 
             @include md{
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(2, 350px);
+                grid-auto-rows: 350px;
                 gap: 2rem;
             }
             
             @include lg{
                 grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(2, 350px);
-                
-                #featured-card-5,
-                #featured-card-6{
-                    display: block;
-                }
             }
             @include xl{
                 grid-template-columns: repeat(4, 1fr);
-                grid-template-rows: repeat(2, 350px);
-
-                #featured-card-7,
-                #featured-card-8{
-                    display: block;
-                }
             }
 
             .small-card{
+
+                &:nth-child(3),
+                &:nth-child(4),
+                &:nth-child(5),
+                &:nth-child(6),
+                &:nth-child(7),
+                &:nth-child(8){
+                    display: none;
+                }
+
+                @media (min-width: 520px){
+
+                    &:nth-child(3),
+                    &:nth-child(4){
+                        display: block;
+                    }
+                }
+                @include lg{                    
+                    &:nth-child(5),
+                    &:nth-child(6){
+                        display: block;
+                    }
+                }
+                @include xl{  
+                    &:nth-child(7),
+                    &:nth-child(8){
+                        display: block;
+                    }
+                }
+
                 .placeholder-area{
-                    // .card-menu{
-                    //     top: 0.6rem;
-
-                    //     @include md{
-                    //         top: 0.6rem;
-                    //     }
-                    // }
-
-
                     button{
                         padding: 0.8rem 3rem;
                     }

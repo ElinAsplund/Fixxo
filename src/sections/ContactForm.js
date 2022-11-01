@@ -30,10 +30,10 @@ const ContactForm = () => {
         if (allOK===true){
             let json = JSON.stringify(contactForm)
 
-            setContactForm({ name: '', email: '', comments: '' })
-            setErrorName({})
-            setErrorEmail({})
-            setErrorComments({})
+            // setContactForm({ name: '', email: '', comments: '' })
+            // setErrorName({})
+            // setErrorEmail({})
+            // setErrorComments({})
 
             let result = await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json, )
             console.log("await result: " + result);
@@ -43,7 +43,7 @@ const ContactForm = () => {
                 setFailedSubmit(false)
             }else{
                 setCanSubmit(false)
-                setFailedSubmit(true) 
+                setFailedSubmit(true)
             }
             return true
         }else
@@ -55,6 +55,7 @@ const ContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setCanSubmit(validateSubmit())
+        console.log(canSubmit);
     }
 
     // ---Validate NAME---

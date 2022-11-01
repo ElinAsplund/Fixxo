@@ -31,11 +31,12 @@
             height: 100%;
             gap: 2rem;
             grid-template-columns: 1fr;
-            grid-template-rows: 250px;
+            // grid-template-rows: 250px;
+            grid-auto-rows: 320px;
             
             @include sm{                
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(2, 250px);
+                // grid-template-rows: repeat(2, 250px);
             }
 
             @include md{                
@@ -47,9 +48,9 @@
             }
 
             @include xl{
-                grid-template-rows: repeat(2, 320px);    
+                // grid-template-rows: repeat(2, 320px);
             }
-            
+
             .small-card{
                 text-align: left;
                 height: 320px;
@@ -63,6 +64,16 @@
                 }
                 @include md{
                     text-align: left;
+                    display: none;
+
+                    &:nth-child(2),
+                    &:nth-child(3){
+                        display: block;
+                    }
+                }
+
+                @include lg{
+                    display: block;
                 }
 
                 h2{
@@ -217,35 +228,35 @@
     }}
 
 // Showing/hiding some small cards at small screen sizes:
-#price-card-4,
-#price-card-5,
-#price-card-8,
-#price-card-9{
-    display: none;
+// #price-card-4,
+// #price-card-5,
+// #price-card-8,
+// #price-card-9{
+//     display: none;
 
-    @include lg{
-        display: block;
-    }
-}
+//     @include lg{
+//         display: block;
+//     }
+// }
 
-#price-card-4,
-#price-card-8{
-    display: none;
+// #price-card-4,
+// #price-card-8{
+//     display: none;
 
-    // @include md{
-    //     display: none;
-    // }
+//     // @include md{
+//     //     display: none;
+//     // }
 
-    @include lg{
-        display: block;
-    }
-}
+//     @include lg{
+//         display: block;
+//     }
+// }
 
-#price-card-3,
-#price-card-7{
-    display: none;
+// #price-card-3,
+// #price-card-7{
+//     display: none;
 
-    @include sm{
-        display: block;
-    }
-}
+//     @include sm{
+//         display: block;
+//     }
+// }
