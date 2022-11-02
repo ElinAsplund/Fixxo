@@ -1,10 +1,12 @@
-import { useContext } from 'react'
 import SmallCard from '../components/SmallCard'
-import { ProductContext } from '../contexts/contexts'
 
-const FeaturedProducts =  ({className, title}) => {
+// import { useContext } from 'react'
+// import { ProductContext } from '../contexts/contexts'
 
-  const products = useContext(ProductContext)
+const FeaturedProducts =  ({className, title, items=[]}) => {
+  // const FeaturedProducts =  ({className, title}) => {
+
+  // const products = useContext(ProductContext)
 
   return (
     <section className={className}>
@@ -12,7 +14,7 @@ const FeaturedProducts =  ({className, title}) => {
         <h3>{title}</h3>
         <div className="grid">
           {
-            products.eighthProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)
+            items.map(product => <SmallCard item={product} key={product.articleNumber} />)
           }
         </div>
       </div>        
