@@ -12,7 +12,7 @@ const FeaturedProducts =  ({className, title}) => {
         <h3>{title}</h3>
         <div className="grid">
           {
-            products.map(product => <SmallCard item={product} key={product.articleNumber} />)
+            products.eighthProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)
           }
         </div>
       </div>        

@@ -15,7 +15,7 @@ const TwoForPriceOf = () => {
                     <div className="grid-1">
                         <LgCard heading="2 FOR USD $29" id="lg-card-1"/>
                         {
-                            products.map(product => <SmallCard item={product} key={product.articleNumber} />)
+                            products.fourProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)
                         } 
                     </div>
                 </div>
@@ -25,7 +25,7 @@ const TwoForPriceOf = () => {
                 <div className="grid-holder" id="grid-holder-second">
                     <div className="grid-2">
                         {
-                            products.map(product => <SmallCard item={product} key={product.articleNumber} />)
+                            products.fourProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)
                         } 
                         <LgCard heading="2 FOR USD $49" id="lg-card-2"/>
                     </div>
