@@ -18,8 +18,7 @@ function App() {
     nineProducts: []
   })
   
-// får inte det att funka med att dela upp feature-products? 
-// + att alla funktioner på en gång i useEffect funkar inte, men en och en funkar, min kod eller api...?
+// Alla funktioner på en gång i useEffect funkar inte, men en och en funkar.
 // FETCH hämtar bara från EN funktion, olika varje gång. 
 
   useEffect(() => {

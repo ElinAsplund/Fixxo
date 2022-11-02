@@ -33,6 +33,7 @@ const ProductDetailsView = () => {
   const productContext = useContext(ProductContext)
 
   const debug = () =>{
+    console.log("---CLICK!---")
     console.log(productContext.allProducts)
     console.log(productContext.fourProducts)
     console.log(productContext.eighthProducts)

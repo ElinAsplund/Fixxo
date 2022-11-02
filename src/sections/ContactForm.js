@@ -43,6 +43,7 @@ const ContactForm = () => {
             setErrorName({})
             setErrorEmail({})
             setErrorComments({})
+            setSubmitMessage('')
 
             let result = await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json,)
             console.log("await result: " + result);
@@ -58,6 +59,7 @@ const ContactForm = () => {
             console.log("validateSubmit: true")
             // return true
         } else {
+            setSubmitMessage('Please fill in the required information!')
             console.log("validateSubmit: false")
             return false
         }
@@ -67,6 +69,11 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await validateSubmit()
+
+        // if(canSubmit===false && failedSubmit===false)
+        //     setSubmitMessage('Please fill out the form!')
+        // else
+        //     setSubmitMessage('')
     }
 
     // ---Validate NAME---
@@ -122,27 +129,34 @@ const ContactForm = () => {
         <section className="contact-form">
             <div className="container">
                 {
-                    // canSubmit ? 
-                    // (   
-                    //     <> 
-                    //         <div className='success-holder'>
-                    //             <div><img src="https://img.freepik.com/free-vector/powerful-concept-illustration_114360-1212.jpg?w=826&t=st=1666815867~exp=1666816467~hmac=d05f01168c248329458f706ee0c5e1011c72af10847ec4bc34e7f5ecd98576e9"/></div>
-                    //             <div className='success-message'>Thank you!<br/>Your comment has been successfully sent!</div>
-                    //         </div>
-                    //     </>
-                    // )
-                    // :
-                    // (                        
+                    canSubmit ? 
+                    (   
+                        <> 
+                            <div className='success-holder'>
+                                <div><img src="https://img.freepik.com/free-vector/powerful-concept-illustration_114360-1212.jpg?w=826&t=st=1666815867~exp=1666816467~hmac=d05f01168c248329458f706ee0c5e1011c72af10847ec4bc34e7f5ecd98576e9"/></div>
+                                <div className='alert alert-success mt-3' role="alert">
+                                    <h1 className='alert pb-0 pt-0'>Thank you!</h1>
+                                    <p className='alert pb-0 mb-0 pt-1'>Your comment has been successfully sent!</p>
+                                </div>
+                            </div>    
+                        </>
+                    )
+                    :
+                    (                        
                     <>
                         {
                             failedSubmit ? (
-                                <h1 className="alert alert-danger">Something went wrong!</h1>) : (<></>)
+                                <div className='alert alert-danger text-center' role="alert">
+                                    <h1 className='alert pb-0 pt-0'>Something went wrong!</h1>
+                                    <p className='alert pb-0 mb-0 pt-1'>We couldn't send your comment right now.</p>
+                                </div>
+                            ) : (<></>)
                         }
-                        {
+                        {/* {
                             canSubmit ? (
                                 <h1 className="alert alert-success">Message sent!</h1>) : (<></>)
-                        }
-                        <pre>{"canSubmit: " + JSON.stringify(canSubmit) + " failedSubmit: " + JSON.stringify(failedSubmit)} </pre>
+                        } */}
+                        {/* <pre>{"canSubmit: " + JSON.stringify(canSubmit) + " failedSubmit: " + JSON.stringify(failedSubmit)} </pre> */}
                         <h1>Come in Contact with Us</h1>
                         <form onSubmit={handleSubmit} noValidate>
                             <div className="top-form">
@@ -164,11 +178,11 @@ const ContactForm = () => {
                                     <div id="comments-error" className="error-text">{errorComments.comments}</div>
                                 </div>
                                 <button className="btn-bg-theme" type="submit">Post Comment</button>
-                                <div id="successful-post">{submitMessage}</div>
+                                <div id="submit-message">{submitMessage}</div>
                             </div>
                         </form>
                     </>
-                    // )
+                    )
                 }
             </div>
         </section>

@@ -79,9 +79,10 @@
                         width: 220px;
                     }
                 }
-                #successful-post{
+                #submit-message{
                     margin-top: 1rem;
-                    // color: #009b00;
+                    font-weight: $font-weight-semibold;
+                    color: $color-theme;
                 }
             } 
         }

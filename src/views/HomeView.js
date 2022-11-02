@@ -20,6 +20,7 @@ const HomeView = () => {
   const productContext = useContext(ProductContext)
 
   const debug = () =>{
+    console.log("---CLICK!---")
     console.log(productContext.allProducts)
     console.log(productContext.fourProducts)
     console.log(productContext.eighthProducts)
@@ -32,8 +33,8 @@ const HomeView = () => {
       <ShowcaseTop />
       <ShowcaseBottom />
       <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={debug}>DEBUG</button></div>
-      <FeaturedProducts className="featured-products" title="Featured Products" />
-      {/* <FeaturedProducts className="featured-products" title="Featured Products" items={productContext.eighthProducts} /> */}
+      {/* <FeaturedProducts className="featured-products" title="Featured Products" /> */}
+      <FeaturedProducts className="featured-products" title="Featured Products" items={productContext.eighthProducts} />
       <TopPicks />
       <OurSpeciality />
       <TwoForPriceOf />
