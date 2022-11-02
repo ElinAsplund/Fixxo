@@ -36,7 +36,7 @@ const SmallCard = ({ item }) => {
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
             </div>
-            <p><span id="before-discount-price">{item.initialPrice}</span> {item.price}</p>
+            <p><span id="before-discount-price">{item.initialPrice}</span> ${item.price}.00</p>
         </div>
     )
 }

@@ -154,7 +154,7 @@
                         display: block;
 
                         @include sm{
-                            display: none;
+                            // display: none;
                             padding: 0.8rem 3rem;
                         }
 

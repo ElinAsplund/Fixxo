@@ -16,7 +16,7 @@ const MiniCard = ({item}) => {
           <i className="fa-sharp fa-solid fa-star"></i>
           <i className="fa-sharp fa-solid fa-star"></i>
         </div>
-        <p>{item.price}</p>
+        <p>${item.price}.00</p>
       </div>
     </div>
   )
