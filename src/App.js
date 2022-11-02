@@ -18,6 +18,9 @@ function App() {
     nineProducts: []
   })
   
+// får inte det att funka med att dela upp feature-products, 
+// och att visa alla funktioner i useEffect funkar inte, men en och en funkar, min kod eller api...?
+
   useEffect(() => {
     const fetchAllProducts = async () => {
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?')
@@ -25,23 +28,23 @@ function App() {
     }
     fetchAllProducts()
   
-    const fetchFourProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
-      setProducts({...products, fourProducts: await result.json()})
-    }
-    fetchFourProducts()
+    // const fetchFourProducts = async () => {
+    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
+    //   setProducts({...products, fourProducts: await result.json()})
+    // }
+    // fetchFourProducts()
   
-    const fetchEighthProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
-      setProducts({...products, eighthProducts: await result.json()})
-    }
-    fetchEighthProducts()
+    // const fetchEighthProducts = async () => {
+    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
+    //   setProducts({...products, eighthProducts: await result.json()})
+    // }
+    // fetchEighthProducts()
   
-    const fetchNineProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
-      setProducts({...products, nineProducts: await result.json()})
-    }
-    fetchNineProducts()
+    // const fetchNineProducts = async () => {
+    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
+    //   setProducts({...products, nineProducts: await result.json()})
+    // }
+    // fetchNineProducts()
   
   }, [setProducts])
 

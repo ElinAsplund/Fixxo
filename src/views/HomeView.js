@@ -10,21 +10,22 @@ import WebshopInfo from '../sections/WebshopInfo';
 import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
 
-import React, { useContext } from 'react';
-import { ProductContext } from '../contexts/contexts'
+// import React, { useContext } from 'react';
+// import { ProductContext } from '../contexts/contexts'
 
 const HomeView = () => {
 
   window.top.document.title='Fixxo.'
 
-  const productContext = useContext(ProductContext)
+  // const productContext = useContext(ProductContext)
 
   return (
     <>
       <MainMenu className="gradient-grey" />
       <ShowcaseTop />
       <ShowcaseBottom />
-      <FeaturedProducts className="featured-products" title="Featured Products" items={productContext.eighthProducts} />
+      <FeaturedProducts className="featured-products" title="Featured Products" />
+      {/* <FeaturedProducts className="featured-products" title="Featured Products" items={productContext.eighthProducts} /> */}
       <TopPicks />
       <OurSpeciality />
       <TwoForPriceOf />
