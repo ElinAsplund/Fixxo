@@ -31,7 +31,7 @@ const HomeView = () => {
       <MainMenu className="gradient-grey" />
       <ShowcaseTop />
       <ShowcaseBottom />
-      <button className="btn-bg-dark" onClick={debug}>DEBUG</button>
+      <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={debug}>DEBUG</button></div>
       <FeaturedProducts className="featured-products" title="Featured Products" />
       {/* <FeaturedProducts className="featured-products" title="Featured Products" items={productContext.eighthProducts} /> */}
       <TopPicks />

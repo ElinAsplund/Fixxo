@@ -24,7 +24,7 @@ const ProductsView = () => {
       <MainMenu className="bg-white" />
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" />
       {/* <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" items={productContext.allProducts} /> */}
-      <button className="btn-bg-dark" onClick={debug}>DEBUG</button>
+      <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={debug}>DEBUG</button></div>
       <FeaturedProducts className='product-browsing mt-0' title="Products" />
       <Footer />
     </>
