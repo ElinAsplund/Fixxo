@@ -27,26 +27,27 @@ function App() {
       setProducts({...products, allProducts: await result.json()})
     }
     fetchAllProducts()
+
+    const fetchFourProducts = async () => {
+      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
+      setProducts({...products, fourProducts: await result.json()})
+    }
+    fetchFourProducts()
   
-    // const fetchFourProducts = async () => {
-    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
-    //   setProducts({...products, fourProducts: await result.json()})
-    // }
-    // fetchFourProducts()
-  
-    // const fetchEighthProducts = async () => {
-    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
-    //   setProducts({...products, eighthProducts: await result.json()})
-    // }
-    // fetchEighthProducts()
-  
-    // const fetchNineProducts = async () => {
-    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
-    //   setProducts({...products, nineProducts: await result.json()})
-    // }
-    // fetchNineProducts()
+    const fetchEighthProducts = async () => {
+      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
+      setProducts({...products, eighthProducts: await result.json()})
+    }
+    fetchEighthProducts()
+
+    const fetchNineProducts = async () => {
+      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
+      setProducts({...products, nineProducts: await result.json()})
+    }
+    fetchNineProducts()
   
   }, [setProducts])
+
 
   return (
     <BrowserRouter>

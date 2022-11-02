@@ -55,8 +55,8 @@ const ContactForm = () => {
                 setCanSubmit(false)
                 setFailedSubmit(true)
             }
-            // console.log("validateSubmit: true")
-//             return true
+            console.log("validateSubmit: true")
+            // return true
         } else {
             console.log("validateSubmit: false")
             return false
@@ -67,9 +67,6 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await validateSubmit()
-        // setCanSubmit(await validateSubmit())
-        console.log("canSubmit: " + JSON.stringify(canSubmit))
-        console.log("failedSubmit: " + JSON.stringify(failedSubmit))
     }
 
     // ---Validate NAME---
@@ -125,26 +122,26 @@ const ContactForm = () => {
         <section className="contact-form">
             <div className="container">
                 {
-                    canSubmit ? 
-                    (   
-                        <> 
-                            <div className='success-holder'>
-                                <div><img src="https://img.freepik.com/free-vector/powerful-concept-illustration_114360-1212.jpg?w=826&t=st=1666815867~exp=1666816467~hmac=d05f01168c248329458f706ee0c5e1011c72af10847ec4bc34e7f5ecd98576e9"/></div>
-                                <div className='success-message'>Thank you!<br/>Your comment has been successfully sent!</div>
-                            </div>
-                        </>
-                    )
-                    :
-                    (                        
+                    // canSubmit ? 
+                    // (   
+                    //     <> 
+                    //         <div className='success-holder'>
+                    //             <div><img src="https://img.freepik.com/free-vector/powerful-concept-illustration_114360-1212.jpg?w=826&t=st=1666815867~exp=1666816467~hmac=d05f01168c248329458f706ee0c5e1011c72af10847ec4bc34e7f5ecd98576e9"/></div>
+                    //             <div className='success-message'>Thank you!<br/>Your comment has been successfully sent!</div>
+                    //         </div>
+                    //     </>
+                    // )
+                    // :
+                    // (                        
                     <>
                         {
                             failedSubmit ? (
                                 <h1 className="alert alert-danger">Something went wrong!</h1>) : (<></>)
                         }
-                        {/* {
+                        {
                             canSubmit ? (
                                 <h1 className="alert alert-success">Message sent!</h1>) : (<></>)
-                        } */}
+                        }
                         <pre>{"canSubmit: " + JSON.stringify(canSubmit) + " failedSubmit: " + JSON.stringify(failedSubmit)} </pre>
                         <h1>Come in Contact with Us</h1>
                         <form onSubmit={handleSubmit} noValidate>
@@ -171,7 +168,7 @@ const ContactForm = () => {
                             </div>
                         </form>
                     </>
-                    )
+                    // )
                 }
             </div>
         </section>

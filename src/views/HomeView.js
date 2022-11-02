@@ -10,20 +10,28 @@ import WebshopInfo from '../sections/WebshopInfo';
 import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
 
-// import React, { useContext } from 'react';
-// import { ProductContext } from '../contexts/contexts'
+import React, { useContext } from 'react';
+import { ProductContext } from '../contexts/contexts'
 
 const HomeView = () => {
 
   window.top.document.title='Fixxo.'
 
-  // const productContext = useContext(ProductContext)
+  const productContext = useContext(ProductContext)
+
+  const debug = () =>{
+    console.log(productContext.allProducts)
+    console.log(productContext.fourProducts)
+    console.log(productContext.eighthProducts)
+    console.log(productContext.nineProducts)
+  }
 
   return (
     <>
       <MainMenu className="gradient-grey" />
       <ShowcaseTop />
       <ShowcaseBottom />
+      <button className="btn-bg-dark" onClick={debug}>DEBUG</button>
       <FeaturedProducts className="featured-products" title="Featured Products" />
       {/* <FeaturedProducts className="featured-products" title="Featured Products" items={productContext.eighthProducts} /> */}
       <TopPicks />

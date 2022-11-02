@@ -7,6 +7,10 @@ import ProductInDepthInfo from '../sections/ProductInDepthInfo'
 import ProductOverview from '../sections/ProductOverview'
 import RelatedProducts from '../sections/RelatedProducts'
 
+import React, { useContext } from 'react';
+import { ProductContext } from '../contexts/contexts'
+
+
 const ProductDetailsView = () => {
   
   const params = useParams()
@@ -26,6 +30,15 @@ const ProductDetailsView = () => {
   
   window.top.document.title = activeProduct +' | Fixxo.'
 
+  const productContext = useContext(ProductContext)
+
+  const debug = () =>{
+    console.log(productContext.allProducts)
+    console.log(productContext.fourProducts)
+    console.log(productContext.eighthProducts)
+    console.log(productContext.nineProducts)
+  }
+
   return (
     <>
       <MainMenu className="bg-white" />
@@ -33,6 +46,7 @@ const ProductDetailsView = () => {
       <CurrentOfferBanner />
       <ProductOverview />
       <ProductInDepthInfo />
+      <button className="btn-bg-dark" onClick={debug}>DEBUG</button>
       <RelatedProducts />
       <Footer />
     </>
