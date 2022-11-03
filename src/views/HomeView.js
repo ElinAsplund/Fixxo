@@ -26,6 +26,12 @@ const HomeView = () => {
     console.log(productContext.eighthProducts)
     console.log(productContext.nineProducts)
     
+
+  }
+
+  const assigning = () =>{
+    console.log("---ASSIGNING---")
+
     for (let i=0 ; i<4 ; i++){
       productContext.fourProducts.push(productContext.allProducts[i])
     }
@@ -35,9 +41,6 @@ const HomeView = () => {
     for (let i=0 ; i<9 ; i++){
       productContext.nineProducts.push(productContext.allProducts[i])
     }
-
-    console.log("---ASSIGNING---")
-
     console.log(productContext.allProducts)
     console.log(productContext.fourProducts)
     console.log(productContext.eighthProducts)
@@ -50,6 +53,7 @@ const HomeView = () => {
       <ShowcaseTop />
       <ShowcaseBottom />
       <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={debug}>DEBUG</button></div>
+      <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={assigning}>ASSIGNING</button></div>
       {/* <FeaturedProducts className="featured-products" title="Featured Products" /> */}
       <FeaturedProducts className="featured-products" title="Featured Products" items={productContext.eighthProducts} />
       <TopPicks />

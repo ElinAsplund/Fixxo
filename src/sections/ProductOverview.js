@@ -10,19 +10,27 @@ const ProductOverview = () => {
     const [activeSizeL, setActiveSizeL] = useState(false)
     const [activeSizeXL, setActiveSizeXL] = useState(false)
     const [count, setCount] = useState(1)
+    const params = useParams()
     
 // TESTING IF I CAN RENDER THE RIGHT PRODUCT INFO 
     const productContext = useContext(ProductContext)
     console.log(typeof productContext.allProducts);
     console.log(productContext.allProducts[0].articleNumber);
 
+    // I wanna find where in productContext.allProducts:
+    // params.productName === productContext.allProducts[i].articleNumber
+    
     // const checkProduct = (productContext.allProducts) => {
     //     return productContext.allProducts===params.productName
     // }
 
-// Displaying the right heading for the chosen product
-    const params = useParams()
+    const thisProduct = productContext.allProducts.find(obj => {
+        return obj.articleNumber == params.productName
+      })
 
+    console.log("thisProduct: " + thisProduct);  
+
+// Displaying the right heading for the chosen product
     // To get rid of the _ and capitalize the first letter:
     // https://flexiple.com/javascript/javascript-capitalize-first-letter/#section2
     let activeProduct = params.productName
@@ -36,7 +44,7 @@ const ProductOverview = () => {
 
     activeProduct = eachWord.join(" ");
     
-
+// onSubmit preventDefault
     const handleSubmit = (e) => {
         e.preventDefault()
     }
