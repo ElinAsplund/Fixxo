@@ -80,9 +80,12 @@
                     }
                 }
                 #submit-message{
+                    display: block;
+                    width: max-content;
                     margin-top: 1rem;
                     font-weight: $font-weight-semibold;
                     color: $color-theme;
+                    background-color: #ffdddd;
                 }
             } 
         }
