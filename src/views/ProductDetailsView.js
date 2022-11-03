@@ -14,7 +14,11 @@ import { ProductContext } from '../contexts/contexts'
 const ProductDetailsView = () => {
   
   const params = useParams()
-  
+
+  // const thisProduct = productContext.allProducts.find(obj => {
+  //   return obj.articleNumber == params.id
+  // }) 
+
   // To get rid of the _ and capitalize the first letter:
   // https://flexiple.com/javascript/javascript-capitalize-first-letter/#section2
   let activeProduct = params.productName
@@ -34,6 +38,23 @@ const ProductDetailsView = () => {
 
   const debug = () =>{
     console.log("---CLICK!---")
+    console.log(productContext.allProducts)
+    console.log(productContext.fourProducts)
+    console.log(productContext.eighthProducts)
+    console.log(productContext.nineProducts)
+    
+    for (let i=0 ; i<4 ; i++){
+      productContext.fourProducts.push(productContext.allProducts[i])
+    }
+    for (let i=0 ; i<8 ; i++){
+      productContext.eighthProducts.push(productContext.allProducts[i])
+    }
+    for (let i=0 ; i<9 ; i++){
+      productContext.nineProducts.push(productContext.allProducts[i])
+    }
+
+    console.log("---ASSIGNING---")
+
     console.log(productContext.allProducts)
     console.log(productContext.fourProducts)
     console.log(productContext.eighthProducts)

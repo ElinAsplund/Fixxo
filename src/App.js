@@ -17,6 +17,13 @@ function App() {
     eighthProducts: [],
     nineProducts: []
   })
+
+  // const [products, setProducts] = useState({
+  //   allProducts: [],
+  //   fourProducts: [],
+  //   eighthProducts: [],
+  //   nineProducts: []
+  // })
   
 // Alla funktioner på en gång i useEffect funkar inte, men en och en funkar.
 // FETCH hämtar bara från EN funktion, olika varje gång. 
@@ -28,23 +35,23 @@ function App() {
     }
     fetchAllProducts()
 
-    const fetchFourProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
-      setProducts({...products, fourProducts: await result.json()})
-    }
-    fetchFourProducts()
+    // const fetchFourProducts = async () => {
+    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
+    //   setProducts({...products, fourProducts: await result.json()})
+    // }
+    // fetchFourProducts()
   
-    const fetchEighthProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
-      setProducts({...products, eighthProducts: await result.json()})
-    }
-    fetchEighthProducts()
+    // const fetchEighthProducts = async () => {
+    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
+    //   setProducts({...products, eighthProducts: await result.json()})
+    // }
+    // fetchEighthProducts()
 
-    const fetchNineProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
-      setProducts({...products, nineProducts: await result.json()})
-    }
-    fetchNineProducts()
+    // const fetchNineProducts = async () => {
+    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
+    //   setProducts({...products, nineProducts: await result.json()})
+    // }
+    // fetchNineProducts()
   
   }, [setProducts])
 
@@ -81,3 +88,26 @@ export default App;
 //   {id: 11, productName: "Extreme Pattern Shirt", category: "Fashion", price: "$35.00", imgUrl: "https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHNoaXJ0JTIwbWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"},
 //   {id: 12, productName: "Yellow Two Piece Set", category: "Casual", price: "$40.00", imgUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGNsb3RoZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"},
 // ])
+
+
+// for (let i=0 ; i<4 ; i++){
+//   let newArray = [];
+//   newArray.push(products.allProducts[i]);
+
+//   console.log(products.allProducts[i]);
+//   setProducts({...products, fourProducts: newArray})
+// }
+
+
+// const setAmoutOfProducts = async () =>{
+//   await fetchAllProducts()
+//   let allProducts = products.allProducts
+
+//   console.log(products.allProducts);
+
+//   for (let i=0 ; i<4 ; i++){
+//     console.log(await products.allProducts[i]);
+//     // setProducts({...products, fourProducts: await products.allProducts[i]})
+//   }
+// }
+// setAmoutOfProducts()

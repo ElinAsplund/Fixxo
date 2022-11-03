@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
+
+import { ProductContext } from '../contexts/contexts'
 
 const ProductOverview = () => {
     const [activeSizeS, setActiveSizeS] = useState(false)
@@ -8,6 +10,15 @@ const ProductOverview = () => {
     const [activeSizeL, setActiveSizeL] = useState(false)
     const [activeSizeXL, setActiveSizeXL] = useState(false)
     const [count, setCount] = useState(1)
+    
+// TESTING IF I CAN RENDER THE RIGHT PRODUCT INFO 
+    const productContext = useContext(ProductContext)
+    console.log(typeof productContext.allProducts);
+    console.log(productContext.allProducts[0].articleNumber);
+
+    // const checkProduct = (productContext.allProducts) => {
+    //     return productContext.allProducts===params.productName
+    // }
 
 // Displaying the right heading for the chosen product
     const params = useParams()
@@ -31,25 +42,25 @@ const ProductOverview = () => {
     }
 
 // Toggle of size-buttons 
-    const toggleButtonS = (e) =>{
+    const toggleButtonS = () =>{
         setActiveSizeS(!activeSizeS)
         setActiveSizeM(false)
         setActiveSizeL(false)
         setActiveSizeXL(false)
     }
-    const toggleButtonM = (e) =>{
+    const toggleButtonM = () =>{
         setActiveSizeS(false)
         setActiveSizeM(!activeSizeM)
         setActiveSizeL(false)
         setActiveSizeXL(false)
     }
-    const toggleButtonL = (e) =>{
+    const toggleButtonL = () =>{
         setActiveSizeS(false)
         setActiveSizeM(false)
         setActiveSizeL(!activeSizeL)
         setActiveSizeXL(false)
     }
-    const toggleButtonXL = (e) =>{
+    const toggleButtonXL = () =>{
         setActiveSizeS(false)
         setActiveSizeM(false)
         setActiveSizeL(false)

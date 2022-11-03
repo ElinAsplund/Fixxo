@@ -28,7 +28,8 @@ const SmallCard = ({ item }) => {
                 </NavLink>
             </div>
             <h2>{item.category}</h2>
-            <NavLink to={`/products/${item.name.replace(/ /gi, "_").toLowerCase()}`} className="product-name" end>{item.name}</NavLink>
+            <NavLink to={`/products/${item.articleNumber}`} className="product-name" end>{item.name}</NavLink>
+            {/* <NavLink to={`/products/${item.name.replace(/ /gi, "_").toLowerCase()}`} className="product-name" end>{item.name}</NavLink> */}
             <div className="star-holder">
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>

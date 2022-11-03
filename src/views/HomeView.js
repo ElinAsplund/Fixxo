@@ -25,6 +25,23 @@ const HomeView = () => {
     console.log(productContext.fourProducts)
     console.log(productContext.eighthProducts)
     console.log(productContext.nineProducts)
+    
+    for (let i=0 ; i<4 ; i++){
+      productContext.fourProducts.push(productContext.allProducts[i])
+    }
+    for (let i=0 ; i<8 ; i++){
+      productContext.eighthProducts.push(productContext.allProducts[i])
+    }
+    for (let i=0 ; i<9 ; i++){
+      productContext.nineProducts.push(productContext.allProducts[i])
+    }
+
+    console.log("---ASSIGNING---")
+
+    console.log(productContext.allProducts)
+    console.log(productContext.fourProducts)
+    console.log(productContext.eighthProducts)
+    console.log(productContext.nineProducts)
   }
 
   return (
