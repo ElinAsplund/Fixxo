@@ -19,7 +19,10 @@
                 
                 @include lg{
                     display: block;
-                }    
+                    display: flex;
+                    align-items: flex-end;
+                }
+
                 img{
                     width: 100%;
                 }

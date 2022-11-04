@@ -18,20 +18,20 @@ const ProductOverview = () => {
     // ------------------------------------------------------------------------------
     // TESTING AREA - CAN I RENDER THE RIGHT PRODUCT INFO? : 
     const productContext = useContext(ProductContext)
-    console.log(typeof productContext.allProducts);
-    console.log(productContext.allProducts[0].articleNumber);
+    // console.log(typeof productContext.allProducts);
+    // console.log(productContext.allProducts[0].articleNumber);
 
     // This is what I wanna do:
     // I wanna find where (which index... perhaps?) in productContext.allProducts:
     // params.productName === productContext.allProducts[i].articleNumber
 
     // kopierat från HannahR discord:
-    const thisProduct = productContext.allProducts.find(obj => {
-        return obj.articleNumber == params.productName
-    })
+    // const thisProduct = productContext.allProducts.find(obj => {
+    //     return obj.articleNumber == params.productName
+    // })
 
     // It will not work, undefined (async/await problem?):  
-    console.log("thisProduct: " + thisProduct);
+    // console.log("thisProduct: " + thisProduct);
 
 
     // ------------------------------------------------------------------------------

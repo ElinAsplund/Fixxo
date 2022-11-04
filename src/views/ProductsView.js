@@ -45,7 +45,7 @@ const ProductsView = () => {
       <MainMenu className="bg-white" />
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" />
       <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={debug}>DEBUG</button></div>
-      <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={assigning}>ASSIGNING</button></div>
+      <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={assigning}>ASSIGNING (when allProducts)</button></div>
       <FeaturedProducts className='product-browsing mt-0' title="Products" items={productContext.allProducts}/>
       <Footer />
     </>

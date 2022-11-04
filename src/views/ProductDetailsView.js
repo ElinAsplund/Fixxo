@@ -72,7 +72,7 @@ const ProductDetailsView = () => {
       <ProductOverview />
       <ProductInDepthInfo />
       <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={debug}>DEBUG</button></div>
-      <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={assigning}>ASSIGNING</button></div>
+      <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={assigning}>ASSIGNING (when allProducts)</button></div>
       <RelatedProducts />
       <Footer />
     </>
