@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
 
@@ -14,24 +14,34 @@ const ProductOverview = () => {
     const [activeSizeXL, setActiveSizeXL] = useState(false)
     const [count, setCount] = useState(1)
     const params = useParams()
+    const [productInfo, setProductInfo] = useState({})
 
     // ------------------------------------------------------------------------------
     // TESTING AREA - CAN I RENDER THE RIGHT PRODUCT INFO? : 
-    const productContext = useContext(ProductContext)
+    // const productContext = useContext(ProductContext)
     // console.log(typeof productContext.allProducts);
     // console.log(productContext.allProducts[0].articleNumber);
 
     // This is what I wanna do:
     // I wanna find where (which index... perhaps?) in productContext.allProducts:
-    // params.productName === productContext.allProducts[i].articleNumber
+    // params.articleName === productContext.allProducts[i].articleNumber
 
     // kopierat från HannahR discord:
     // const thisProduct = productContext.allProducts.find(obj => {
-    //     return obj.articleNumber == params.productName
+    //     return obj.articleNumber == params.articleName
     // })
 
     // It will not work, undefined (async/await problem?):  
     // console.log("thisProduct: " + thisProduct);
+
+    useEffect(() => {
+        const fetchProductInfo = async () => {
+          const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${params.articleNumber}`)
+          setProductInfo(await result.json())
+        }
+        fetchProductInfo()
+    
+      }, [setProductInfo])
 
 
     // ------------------------------------------------------------------------------
@@ -39,16 +49,17 @@ const ProductOverview = () => {
     // Displaying the right heading for the chosen product
     // To get rid of the _ and capitalize the first letter:
     // https://flexiple.com/javascript/javascript-capitalize-first-letter/#section2
-    let activeProduct = params.productName
-    activeProduct = activeProduct.replace(/_/gi, " ")
 
-    let eachWord = activeProduct.split(" ")
+    // let activeProduct = params.articleNumber
+    // activeProduct = activeProduct.replace(/_/gi, " ")
 
-    for (let i = 0; i < eachWord.length; i++) {
-        eachWord[i] = eachWord[i].charAt(0).toUpperCase() + eachWord[i].slice(1);
-    }
+    // let eachWord = activeProduct.split(" ")
 
-    activeProduct = eachWord.join(" ");
+    // for (let i = 0; i < eachWord.length; i++) {
+    //     eachWord[i] = eachWord[i].charAt(0).toUpperCase() + eachWord[i].slice(1);
+    // }
+
+    // activeProduct = eachWord.join(" ");
 
     // ------------------------------------------------------------------------------
     // ON SUBMIT:
@@ -110,12 +121,21 @@ const ProductOverview = () => {
         <section className="product-overview">
             <div className="container">
                 <div className="grid">
-                    <div className="lg-placeholder-area"></div>
-                    <div className="sm-placeholder-area"></div>
-                    <div className="sm-placeholder-area"></div>
-                    <div className="sm-placeholder-area"></div>
+                    <div className="lg-placeholder-area">
+                        <img src={productInfo.imageName} className="lg-placeholder-area" />
+                    </div>
+                    <div className="sm-placeholder-area">
+                        <img src={productInfo.imageName} className="lg-placeholder-area" />
+                    </div>
+                    <div className="sm-placeholder-area">
+                        <img src={productInfo.imageName} className="lg-placeholder-area" />
+                    </div>
+                    <div className="sm-placeholder-area">
+                        <img src={productInfo.imageName} className="lg-placeholder-area" />
+                    </div>
                     <div className="product-order-overview">
-                        <h1>{activeProduct}</h1>
+                        <h1>{productInfo.name}</h1>
+                        {/* <h1>{activeProduct}</h1> */}
                         <p className="small-print">SKU: 12345670 <span>BRAND: The Northland</span></p>
                         <div className="star-holder">
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -124,7 +144,7 @@ const ProductOverview = () => {
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
                         </div>
-                        <h2>$35.00</h2>
+                        <h2>${productInfo.price}.00</h2>
                         <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (<a href="#">read more</a>)</p>
                         <form onSubmit={handleSubmit} noValidate>
                             <div className="form-grid">

@@ -62,7 +62,7 @@ function App() {
           <Route path="/" element={<HomeView />} />
           <Route path="/contacts" element={<ContactsView />} />
           <Route path="/products/" element={<ProductsView />} />
-          <Route path="/products/:productName" element={<ProductDetailsView />} />
+          <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </ProductContext.Provider>

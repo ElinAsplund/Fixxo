@@ -23,13 +23,14 @@ const SmallCard = ({ item }) => {
                     <button onClick={addToCompare} className='btn-menu-icon'><i className='fa-regular fa-code-compare fa-flip-horizontal'></i></button>
                     <button onClick={addToCart}className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button>
                 </div>
-                <NavLink to={`/products/${item.name.replace(/ /gi, "_").toLowerCase()}`}end>
+                <NavLink to={`/products/${item.articleNumber}`}end>
+                {/* <NavLink to={`/products/${item.name.replace(/ /gi, "_").toLowerCase()}`}end> */}
                     <button className="btn-bg-theme btn-quick-view">QUICK VIEW</button>
                 </NavLink>
             </div>
             <h2>{item.category}</h2>
-            {/* <NavLink to={`/products/${item.articleNumber}`} className="product-name" end>{item.name}</NavLink> */}
-            <NavLink to={`/products/${item.name.replace(/ /gi, "_").toLowerCase()}`} className="product-name" end>{item.name}</NavLink>
+            <NavLink to={`/products/${item.articleNumber}`} className="product-name" end>{item.name}</NavLink>
+            {/* <NavLink to={`/products/${item.name.replace(/ /gi, "_").toLowerCase()}`} className="product-name" end>{item.name}</NavLink> */}
             <div className="star-holder">
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
