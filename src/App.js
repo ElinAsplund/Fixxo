@@ -6,58 +6,54 @@ import NotFoundView from './views/NotFoundView';
 import ProductsView from './views/ProductsView';
 import ProductDetailsView from './views/ProductDetailsView';
 import { useEffect, useState } from 'react';
-import { ProductContext } from './contexts/contexts';
+import { ProductContext, FourProductsContext, EighthProductsContext, NineProductsContext } from './contexts/contexts';
 
 
 function App() {
 
-  const [products, setProducts] = useState({
-    allProducts: [],
-    fourProducts: [],
-    eighthProducts: [],
-    nineProducts: []
-  })
-
-  
-// Alla funktioner på en gång i useEffect funkar inte, men en och en funkar.
-// FETCH hämtar bara från EN funktion, vilken av dem varierar. 
-// Skriva om kod, annat som spökar?
+  const [products, setProducts] = useState([])
+  const [fourProducts, setFourProducts] = useState([])
+  const [eighthProducts, setEighthProducts] = useState([])
+  const [nineProducts, setNineProducts] = useState([])
 
   useEffect(() => {
     const fetchAllProducts = async () => {
       console.log("fetching allData");
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?')
-      setProducts({...products, allProducts: await result.json()})
+      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
+      setProducts(await result.json())
     }
     fetchAllProducts()
 
-    // const fetchFourProducts = async () => {
-    //   console.log("fetching fourData");
-    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
-    //   setProducts({...products, fourProducts: await result.json()})
-    // }
-    // fetchFourProducts()
+    const fetchFourProducts = async () => {
+      console.log("fetching fourData");
+      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
+      setFourProducts(await result.json())
+    }
+    fetchFourProducts()
   
-    // const fetchEighthProducts = async () => {
-    //   console.log("fetching eighthData");
-    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
-    //   setProducts({...products, eighthProducts: await result.json()})
-    // }
-    // fetchEighthProducts()
+    const fetchEighthProducts = async () => {
+      console.log("fetching eighthData");
+      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
+      setEighthProducts(await result.json())
+    }
+    fetchEighthProducts()
 
-    // const fetchNineProducts = async () => {
-    //   console.log("fetching nineData");
-    //   let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
-    //   setProducts({...products, nineProducts: await result.json()})
-    // }
-    // fetchNineProducts()
+    const fetchNineProducts = async () => {
+      console.log("fetching nineData");
+      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
+      setNineProducts(await result.json())
+    }
+    fetchNineProducts()
   
-  }, [setProducts])
+  }, [setProducts, setFourProducts, setEighthProducts, setNineProducts])
 
 
   return (
     <BrowserRouter>
       <ProductContext.Provider value = {products}>
+      <FourProductsContext.Provider value = {fourProducts}>
+      <EighthProductsContext.Provider value = {eighthProducts}>
+      <NineProductsContext.Provider value = {nineProducts}>
         <Routes>
           <Route path="/" element={<HomeView />} />
           <Route path="/contacts" element={<ContactsView />} />
@@ -65,6 +61,9 @@ function App() {
           <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
+      </NineProductsContext.Provider>
+      </EighthProductsContext.Provider>
+      </FourProductsContext.Provider>
       </ProductContext.Provider>
     </BrowserRouter>
   );
@@ -73,7 +72,7 @@ function App() {
 export default App;
 
 
-// HOME-MADE PRODUCTS:
+// HOME-MADE PRODUCTS (before api products):
 // const [products, setProducts] = useState([
 //   {id: 1, productName: "Mordern Black Blouse", category: "Fashion", price: "$35.00", imgUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"},
 //   {id: 2, productName: "Happy Sweatshirt", category: "Basic", price: "$25.00", imgUrl: "https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTI5fHxwZW9wbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"},
@@ -88,27 +87,3 @@ export default App;
 //   {id: 11, productName: "Extreme Pattern Shirt", category: "Fashion", price: "$35.00", imgUrl: "https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHNoaXJ0JTIwbWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"},
 //   {id: 12, productName: "Yellow Two Piece Set", category: "Casual", price: "$40.00", imgUrl: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGNsb3RoZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"},
 // ])
-
-
-// Trying to for-loop and save it to the dedicated array. Not working properly, wip:
-// for (let i=0 ; i<4 ; i++){
-//   let newArray = [];
-//   newArray.push(products.allProducts[i]);
-
-//   console.log(products.allProducts[i]);
-//   setProducts({...products, fourProducts: newArray})
-// }
-
-
-// const setAmoutOfProducts = async () =>{
-//   await fetchAllProducts()
-//   let allProducts = products.allProducts
-
-//   console.log(products.allProducts);
-
-//   for (let i=0 ; i<4 ; i++){
-//     console.log(await products.allProducts[i]);
-//     // setProducts({...products, fourProducts: await products.allProducts[i]})
-//   }
-// }
-// setAmoutOfProducts()

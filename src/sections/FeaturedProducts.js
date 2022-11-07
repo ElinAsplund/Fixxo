@@ -1,12 +1,6 @@
 import SmallCard from '../components/SmallCard'
 
-// import { useContext } from 'react'
-// import { ProductContext } from '../contexts/contexts'
-
-// const FeaturedProducts =  ({className, title}) => {
-  const FeaturedProducts =  ({className, title, items=[]}) => {
-
-  // const products = useContext(ProductContext)
+const FeaturedProducts =  ({className, title, items=[]}) => {
 
   return (
     <section className={className}>
@@ -14,7 +8,6 @@ import SmallCard from '../components/SmallCard'
         <h3>{title}</h3>
         <div className="grid">
           {
-            // products.allProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)
             items.map(product => <SmallCard item={product} key={product.articleNumber} />)
           }
         </div>

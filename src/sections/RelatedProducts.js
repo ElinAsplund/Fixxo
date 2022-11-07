@@ -1,10 +1,10 @@
 import SmallCard from '../components/SmallCard'
-import { ProductContext } from '../contexts/contexts'
+import { FourProductsContext } from '../contexts/contexts'
 import { useContext } from 'react'
 
 const RelatedProducts = () => {
 
-    const products = useContext(ProductContext)
+    const products = useContext(FourProductsContext)
 
     return (
         <section className="related-products">
@@ -22,7 +22,7 @@ const RelatedProducts = () => {
                 </div>    
                 <div className="grid">
                 {
-                    products.fourProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)
+                    products.map(product => <SmallCard item={product} key={product.articleNumber} />)
                 }
                 </div>
             </div>
