@@ -17,23 +17,7 @@ const ProductOverview = () => {
     const [productInfo, setProductInfo] = useState({})
 
     // ------------------------------------------------------------------------------
-    // TESTING AREA - CAN I RENDER THE RIGHT PRODUCT INFO? : 
-    // const productContext = useContext(ProductContext)
-    // console.log(typeof productContext.allProducts);
-    // console.log(productContext.allProducts[0].articleNumber);
-
-    // This is what I wanna do:
-    // I wanna find where (which index... perhaps?) in productContext.allProducts:
-    // params.articleName === productContext.allProducts[i].articleNumber
-
-    // kopierat från HannahR discord:
-    // const thisProduct = productContext.allProducts.find(obj => {
-    //     return obj.articleNumber == params.articleName
-    // })
-
-    // It will not work, undefined (async/await problem?):  
-    // console.log("thisProduct: " + thisProduct);
-
+    // FETCHING DATA ABOUT SPECIFIC PRODUCT: 
     useEffect(() => {
         const fetchProductInfo = async () => {
           const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${params.articleNumber}`)
@@ -42,24 +26,6 @@ const ProductOverview = () => {
         fetchProductInfo()
     
       }, [setProductInfo])
-
-
-    // ------------------------------------------------------------------------------
-    // DISPLAYING PRODUCT HEADING:
-    // Displaying the right heading for the chosen product
-    // To get rid of the _ and capitalize the first letter:
-    // https://flexiple.com/javascript/javascript-capitalize-first-letter/#section2
-
-    // let activeProduct = params.articleNumber
-    // activeProduct = activeProduct.replace(/_/gi, " ")
-
-    // let eachWord = activeProduct.split(" ")
-
-    // for (let i = 0; i < eachWord.length; i++) {
-    //     eachWord[i] = eachWord[i].charAt(0).toUpperCase() + eachWord[i].slice(1);
-    // }
-
-    // activeProduct = eachWord.join(" ");
 
     // ------------------------------------------------------------------------------
     // ON SUBMIT:
@@ -121,21 +87,12 @@ const ProductOverview = () => {
         <section className="product-overview">
             <div className="container">
                 <div className="grid">
-                    <div className="lg-placeholder-area">
-                        <img src={productInfo.imageName} className="lg-placeholder-area" />
-                    </div>
-                    <div className="sm-placeholder-area">
-                        <img src={productInfo.imageName} className="lg-placeholder-area" />
-                    </div>
-                    <div className="sm-placeholder-area">
-                        <img src={productInfo.imageName} className="lg-placeholder-area" />
-                    </div>
-                    <div className="sm-placeholder-area">
-                        <img src={productInfo.imageName} className="lg-placeholder-area" />
-                    </div>
+                    <div className="lg-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
+                    <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
+                    <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
+                    <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
                     <div className="product-order-overview">
                         <h1>{productInfo.name}</h1>
-                        {/* <h1>{activeProduct}</h1> */}
                         <p className="small-print">SKU: 12345670 <span>BRAND: The Northland</span></p>
                         <div className="star-holder">
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -167,7 +124,6 @@ const ProductOverview = () => {
                                     <div className="qty-selector">
                                         <button className="btn-qty" id="decrement-btn" onClick={decrementCount}>-</button>
                                         <span className='input-qty' id="qty-value">{count}</span>
-                                        {/* <input className='input-qty' type="text" defaultValue={count} id="qty-value" /> */}
                                         <button className="btn-qty" id="increment-btn" onClick={incrementCount}>+</button>
                                     </div>
                                     <button type='submit' className="btn-bg-theme btn-add-to-cart">ADD TO CART</button>

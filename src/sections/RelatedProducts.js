@@ -21,9 +21,9 @@ const RelatedProducts = () => {
                     </div>
                 </div>    
                 <div className="grid">
-                {
-                    products.map(product => <SmallCard item={product} key={product.articleNumber} />)
-                }
+                    {
+                        products.map(product => <SmallCard item={product} key={product.articleNumber} />)
+                    }
                 </div>
             </div>
         </section>
