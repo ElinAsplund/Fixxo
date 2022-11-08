@@ -7,6 +7,7 @@ import ProductsView from './views/ProductsView';
 import ProductDetailsView from './views/ProductDetailsView';
 import { useEffect, useState } from 'react';
 import { ProductContext, FourProductsContext, EighthProductsContext, NineProductsContext } from './contexts/contexts';
+import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ShoppingCartProvider>
       <ProductContext.Provider value = {products}>
       <FourProductsContext.Provider value = {fourProducts}>
       <EighthProductsContext.Provider value = {eighthProducts}>
@@ -65,6 +67,7 @@ function App() {
       </EighthProductsContext.Provider>
       </FourProductsContext.Provider>
       </ProductContext.Provider>
+      </ShoppingCartProvider>
     </BrowserRouter>
   );
 }

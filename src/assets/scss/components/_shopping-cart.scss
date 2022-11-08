@@ -1,0 +1,10 @@
+.shopping-cart{
+    // background-color: hotpink;
+    width: 100% !important;
+}
+
+@include xl{
+    .shopping-cart{
+        width: 500px !important;
+    }
+}
