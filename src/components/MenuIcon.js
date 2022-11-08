@@ -1,12 +1,11 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
-const MenuIcon = ({link, icon, quantity}) => {
+const MenuIcon = ({icon, quantity}) => {
   return (
-    <NavLink className="menu-icon" to={link} end>
+    <button className="menu-icon">
       <div className="badge rounded-pill">{quantity}</div>
       <i className={icon}></i>
-    </NavLink>
+    </button>  
   )
 }
 

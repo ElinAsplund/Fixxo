@@ -18,28 +18,28 @@ function App() {
 
   useEffect(() => {
     const fetchAllProducts = async () => {
-      console.log("fetching allData");
+      // console.log("fetching allData");
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
       setProducts(await result.json())
     }
     fetchAllProducts()
 
     const fetchFourProducts = async () => {
-      console.log("fetching fourData");
+      // console.log("fetching fourData");
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')    
       setFourProducts(await result.json())
     }
     fetchFourProducts()
   
     const fetchEighthProducts = async () => {
-      console.log("fetching eighthData");
+      // console.log("fetching eighthData");
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')    
       setEighthProducts(await result.json())
     }
     fetchEighthProducts()
 
     const fetchNineProducts = async () => {
-      console.log("fetching nineData");
+      // console.log("fetching nineData");
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')    
       setNineProducts(await result.json())
     }
