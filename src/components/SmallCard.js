@@ -1,7 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useShoppingCart } from '../contexts/ShoppingCartContext'
 
 const SmallCard = ({ item }) => {
+    const { incrementQuantity } = useShoppingCart()
 
     // card-menu onClick-events
     const addToWishList = (e) => {
@@ -10,9 +12,7 @@ const SmallCard = ({ item }) => {
     const addToCompare = (e) => {
         console.log("added to compare");
     }
-    const addToCart = (e) => {
-        console.log("added to cart");
-    }
+
 
     return (
         <div className="small-card" id={item.idCardNumber}>
@@ -21,7 +21,7 @@ const SmallCard = ({ item }) => {
                 <div className="card-menu btn-no-corners">
                     <button onClick={addToWishList} className='btn-menu-icon'><i className='fa-regular fa-heart'></i></button>
                     <button onClick={addToCompare} className='btn-menu-icon'><i className='fa-regular fa-code-compare fa-flip-horizontal'></i></button>
-                    <button onClick={addToCart}className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button>
+                    <button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})}className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button>
                 </div>
                 <NavLink to={`/products/${item.articleNumber}`}end>
                     <button className="btn-bg-theme btn-quick-view">QUICK VIEW</button>
