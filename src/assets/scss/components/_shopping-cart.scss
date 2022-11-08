@@ -1,11 +1,8 @@
 .shopping-cart{
-    // background-color: hotpink;
     width: 100% !important;
 
     .offcanvas-title{
-        // color: aqua;
         i{
-            // color: red;
             font-size: 1.1em;
             margin-right: 0.5rem;
         }
@@ -28,9 +25,6 @@
             }
         }
 
-        // background-color: green;
-        // border: black 1px solid;
-
         &:nth-child(n+1){
             margin-bottom: 1rem;
         }
@@ -41,27 +35,22 @@
             height: 100px;
             border-radius: 3px 0 0 3px;
             overflow: hidden;
-            // border: black 1px solid;
-            
+
             img{
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
                 transition: 0.5s ease-in-out;
-                // border: black 1px solid;
             }
         }
 
         .item-info{
-            // background-color: hotpink;
             margin-left: 1rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
 
             .item-info-name{
-                // background-color: red;
-                // font-size: $font-size-16;
                 font-weight: $font-weight-semibold;
             }
 
@@ -91,11 +80,9 @@
         .item-price{
             display: flex;
             align-items: center;
-            // background-color: aqua;
 
             .price-tag{
                 font-weight: $font-weight-semibold;
-                // background-color: forestgreen;
             }
             .remove-btn{
                 margin: 0 1rem;

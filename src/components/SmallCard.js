@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
 const SmallCard = ({ item }) => {
     const { incrementQuantity } = useShoppingCart()
@@ -36,7 +37,7 @@ const SmallCard = ({ item }) => {
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
             </div>
-            <p><span id="before-discount-price">{item.initialPrice}</span> ${item.price}.00</p>
+            <p><span id="before-discount-price">{item.initialPrice}</span> {currencyFormatter(item.price)}</p>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
 
 const MiniCard = ({item}) => {
@@ -18,7 +19,7 @@ const MiniCard = ({item}) => {
           <i className="fa-sharp fa-solid fa-star"></i>
           <i className="fa-sharp fa-solid fa-star"></i>
         </div>
-        <p>${item.price}.00</p>
+        <p>{currencyFormatter(item.price)}</p>
       </div>
     </div>
   )

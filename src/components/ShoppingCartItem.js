@@ -1,5 +1,6 @@
 import React from 'react'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
 const ShoppingCartItem = ({item}) => {
     const { incrementQuantity, decrementQuantity, removeItem } = useShoppingCart()
@@ -21,7 +22,7 @@ const ShoppingCartItem = ({item}) => {
             </div>
         </div>
         <div className='item-price btn-no-corners'>
-            <div className='price-tag'>${item.product.price * item.quantity}.00</div>
+            <div className='price-tag'>{currencyFormatter(item.product.price * item.quantity)}</div>
             <button className='btn-canvas remove-btn' onClick={() => removeItem(item.articleNumber)}><i className='fa-solid fa-trash'></i></button>
         </div>
     </div>
