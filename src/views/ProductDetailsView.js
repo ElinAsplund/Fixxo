@@ -44,7 +44,7 @@ const ProductDetailsView = () => {
       <CurrentOfferBanner />
       <ProductOverview />
       <ProductInDepthInfo />
-      <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={productInformation}>PRODUCT INFO</button></div>
+      {/* <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={productInformation}>PRODUCT INFO</button></div> */}
       <RelatedProducts />
       <Footer />
     </>

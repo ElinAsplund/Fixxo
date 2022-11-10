@@ -11,7 +11,7 @@ export const ShoppingCartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState([])
 
     const cartQuantity = cartItems.reduce(
-        (quantity, item) => item.quantity + quantity, 0
+        (quantity, item) => item.quantity + quantity, null
     )
 
     const getItemQuantity = (articleNumber) =>{

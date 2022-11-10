@@ -1,8 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
-
-import { ProductContext } from '../contexts/contexts'
 
 const ProductOverview = () => {
 
@@ -17,7 +15,7 @@ const ProductOverview = () => {
     const [productInfo, setProductInfo] = useState({})
 
     // ------------------------------------------------------------------------------
-    // FETCHING DATA ABOUT SPECIFIC PRODUCT: 
+    // FETCHING DATA ABOUT A SPECIFIC PRODUCT: 
     useEffect(() => {
         const fetchProductInfo = async () => {
           const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${params.articleNumber}`)
@@ -75,8 +73,8 @@ const ProductOverview = () => {
     const incrementCount = () => {
         let prevCount = count
 
-        if (prevCount >= 20)
-            prevCount = 20
+        if (prevCount >= 10)
+            prevCount = 10
         else
             prevCount += 1
 
@@ -107,10 +105,10 @@ const ProductOverview = () => {
                             <div className="form-grid">
                                 <label htmlFor="size" className="size">Size:</label>
                                 <div className="size-button-holder btn-no-corners">
-                                    <button className={`size-button me-2 ${activeSizeS ? "size-button-dark" : ""}`} onClick={toggleButtonS} id="sSize">S</button>
-                                    <button className={`size-button me-2 ${activeSizeM ? "size-button-dark" : ""}`} onClick={toggleButtonM} id="mSize">M</button>
-                                    <button className={`size-button me-2 ${activeSizeL ? "size-button-dark" : ""}`} onClick={toggleButtonL} id="lSize">L</button>
-                                    <button className={`size-button ${activeSizeXL ? "size-button-dark" : ""}`} onClick={toggleButtonXL} id="xlSize">XL</button>
+                                    <button className={`size-button me-2 ${activeSizeS ? "size-button-dark" : ""}`} onClick={toggleButtonS} data-testid="sSize">S</button>
+                                    <button className={`size-button me-2 ${activeSizeM ? "size-button-dark" : ""}`} onClick={toggleButtonM} data-testid="mSize">M</button>
+                                    <button className={`size-button me-2 ${activeSizeL ? "size-button-dark" : ""}`} onClick={toggleButtonL} data-testid="lSize">L</button>
+                                    <button className={`size-button ${activeSizeXL ? "size-button-dark" : ""}`} onClick={toggleButtonXL} data-testid="xlSize">XL</button>
                                 </div>
                                 <label htmlFor="color-select" className="color">Color:</label>
                                 <select className="form-select" aria-label="color selector" id="color-select">
