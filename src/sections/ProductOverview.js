@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
+import { useShoppingCart } from '../contexts/ShoppingCartContext'
 
 const ProductOverview = () => {
 
@@ -13,6 +14,8 @@ const ProductOverview = () => {
     const [count, setCount] = useState(1)
     const params = useParams()
     const [productInfo, setProductInfo] = useState({})
+    const { incrementQuantity } = useShoppingCart
+
 
     // ------------------------------------------------------------------------------
     // FETCHING DATA ABOUT A SPECIFIC PRODUCT: 
@@ -29,6 +32,12 @@ const ProductOverview = () => {
     // ON SUBMIT:
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        
+        //I try to add the product to the shopping cart, but it won't work,
+        // "Uncaught TypeError: incrementQuantity is not a function":
+        // console.log(productInfo);
+        incrementQuantity({articleNumber: productInfo.articleNumber, product: productInfo})
     }
 
     // ------------------------------------------------------------------------------

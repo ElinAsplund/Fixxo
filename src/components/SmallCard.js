@@ -22,7 +22,7 @@ const SmallCard = ({ item }) => {
                 <div className="card-menu btn-no-corners">
                     <button onClick={addToWishList} className='btn-menu-icon'><i className='fa-regular fa-heart'></i></button>
                     <button onClick={addToCompare} className='btn-menu-icon'><i className='fa-regular fa-code-compare fa-flip-horizontal'></i></button>
-                    <button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})}className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button>
+                    <button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button>
                 </div>
                 <NavLink to={`/products/${item.articleNumber}`}end>
                     <button className="btn-bg-theme btn-quick-view">QUICK VIEW</button>
