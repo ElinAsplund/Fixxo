@@ -14,13 +14,11 @@
         @include md{
             grid-template-rows: 320px 320px;
         }
-        
         @include lg{
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr; 
             margin: 4rem auto;
         }
-        
         @include xl{
             height: min-content;
         }

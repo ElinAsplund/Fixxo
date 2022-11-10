@@ -1,7 +1,5 @@
 .product-overview{
-    
     .grid {  
-        
         @include sm{
             display: grid;
             grid-auto-columns: 1fr; 
@@ -36,14 +34,61 @@
                 width: 100%;
                 height: 100%;
             }
-                &:hover{
-                    background-color: $color-grey-40;
 
-                    img{
-                        transform: scale(1.1);
-                    }
+            &:hover{
+                background-color: $color-grey-40;
+
+                img{
+                    transform: scale(1.1);
                 }
             }
+            
+            // to make the placeholder border disappear, when no url is added:
+            img:not([src]){
+                opacity: 0;
+            } 
+        }
+
+        .sm-placeholder-area{
+            background-color: $color-grey-20;
+            height: 150px;
+            transition: 0.2s ease-in-out;
+            overflow: hidden;
+            display: none;
+            
+            
+            @include sm{
+                display: block;
+            }
+            @include md{
+                height: 200px;
+            }
+            @include lg{
+                height: 220px;
+            }
+            @include xl{
+                height: 150px;
+            }
+            
+            &:hover{
+                background-color: $color-grey-40;
+                
+                img{
+                    transform: scale(1.1);
+                }
+            }
+
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            
+            // to make the placeholder border disappear, when no url is added:
+            img:not([src]){
+                opacity: 0;
+            } 
+        }
 
         .product-order-overview { 
             grid-area: product-order-overview;
@@ -54,6 +99,7 @@
                 margin: 0;
                 margin-top: 12px;
             }
+
             .small-print{
                 font-weight: $font-weight-medium;
                 font-size: $font-size-13;
@@ -63,6 +109,7 @@
                     margin-left: 1rem;
                 }
             }
+
             .star-holder{
                 margin: 12px 0;
 
@@ -70,16 +117,17 @@
                     color: $color-theme;
                 }
             }
+
             h2{
                 font-weight: $font-weight-semibold;
                 font-size: $font-size-18;
                 margin: 0;
                 margin-bottom: 1.5rem;
             }
+
             p{
                 margin-top: 1rem;
                 margin-bottom: 3rem;
-
                 display: none;
 
                 @include md{
@@ -94,6 +142,7 @@
                     }
                 }
             }
+
             form{
                 .form-grid{
                     display: grid;
@@ -153,7 +202,6 @@
                                 height: auto;
                             }
 
-
                             .btn-qty{
                                 background-color: $color-white;
                                 color: $color-dark;
@@ -171,7 +219,6 @@
 
                             }
                             
-
                             #qty-value{
                                 display: flex;
                                 align-items: center;
@@ -201,6 +248,7 @@
                     }
                 }
             }
+
             .social-media{
                 display: flex;
                 align-items: center;
@@ -233,7 +281,6 @@
                         transition: 0.2s ease-in-out;
                         margin: 0 0.5rem;
     
-    
                         &:hover{
                             background-color: $color-dark;
         
@@ -245,53 +292,11 @@
                 }
             }
         }
-
-        .sm-placeholder-area{
-            background-color: $color-grey-20;
-            height: 150px;
-            transition: 0.2s ease-in-out;
-            overflow: hidden;
-            display: none;
-            
-            
-            @include sm{
-                display: block;
-            }
-            @include md{
-                height: 200px;
-            }
-            @include lg{
-                height: 220px;
-            }
-            @include xl{
-                height: 150px;
-            }
-
-            img{
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-            }
-
-            &:hover{
-                background-color: $color-grey-40;
-
-                img{
-                    transform: scale(1.1);
-                }
-            }
-        }
     }
-}
-
-.toggle-size{
-    background-color: $color-dark !important;
-    color: $color-white !important;
 }
 
 @include xl{
     .product-overview{
-    
         .grid {  
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -317,9 +322,11 @@
                 .star-holder{
                     margin: 1rem 0;
                 }
+
                 h2{
                     margin: 0;
                 }
+                
                 form{
                     .form-grid{
                         align-items: center;

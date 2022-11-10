@@ -9,12 +9,10 @@ import ChosenCategories from '../sections/ChosenCategories';
 import WebshopInfo from '../sections/WebshopInfo';
 import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
-
 import React, { useContext } from 'react';
 import { EighthProductsContext } from '../contexts/contexts'
 
 const HomeView = () => {
-
   window.top.document.title='Fixxo.'
 
   const eighthProductsContext = useContext(EighthProductsContext)

@@ -4,6 +4,8 @@ import { submitData } from '../assets/script/ContactForm_Validation'
 // I have had some major help from my classmate Sara Lindström while structuring up my form validation.
 
 const ContactForm = () => {
+    // ------------------------------------------------------------------------------
+    // SETTING OF "GLOBAL VALUES":
     const [canSubmit, setCanSubmit] = useState(false)
     const [failedSubmit, setFailedSubmit] = useState(false)
     const [contactForm, setContactForm] = useState({ name: '', email: '', comments: '' })
@@ -12,14 +14,16 @@ const ContactForm = () => {
     const [errorComments, setErrorComments] = useState({})
     const [submitMessage, setSubmitMessage] = useState('')
 
+    // ------------------------------------------------------------------------------
+    // HANDLE CHANGE:
     const handleChange = (e) => {
         const { id, value } = e.target
         setContactForm({ ...contactForm, [id]: value })
     }
 
-    // ---Validate onSubmit---
+    // ------------------------------------------------------------------------------
+    // VALIDATE ON SUBMIT:
     const validateSubmit = async () => {
-        // add async?
         console.log("---CLICK---")
 
         let nameOK = validateName()
@@ -48,7 +52,6 @@ const ContactForm = () => {
             let result = await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json,)
             console.log("await result: " + result);
 
-            // if(true){
             if (await result) {
                 setCanSubmit(true)
                 setFailedSubmit(false)
@@ -57,7 +60,6 @@ const ContactForm = () => {
                 setFailedSubmit(true)
             }
             console.log("validateSubmit: true")
-            // return true
         } else {
             setSubmitMessage('Please fill in the required information!')
             console.log("validateSubmit: false")
@@ -65,18 +67,15 @@ const ContactForm = () => {
         }
     }
 
-    // ---Handle Submit---
+    // ------------------------------------------------------------------------------
+    // HANDLE SUBMIT:
     const handleSubmit = async (e) => {
         e.preventDefault()
         await validateSubmit()
-
-        // if(canSubmit===false && failedSubmit===false)
-        //     setSubmitMessage('Please fill out the form!')
-        // else
-        //     setSubmitMessage('')
     }
 
-    // ---Validate NAME---
+    // ------------------------------------------------------------------------------
+    // VALIDATE NAME:
     const validateName = () => {
         let error = {}
         const regex_name = /^[a-zA-Z\u0080-\uFFFF]*$/;
@@ -94,7 +93,8 @@ const ContactForm = () => {
         return Object.keys(error).length === 0 ? true : false;
     }
 
-    // ---Validate EMAIL---
+    // ------------------------------------------------------------------------------
+    // VALIDATE EMAIL:
     const validateEmail = () => {
         let error = {}
         const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -110,7 +110,8 @@ const ContactForm = () => {
         return Object.keys(error).length === 0 ? true : false;
     }
 
-    // ---Validate COMMENTS---
+    // ------------------------------------------------------------------------------
+    // VALIDATE COMMENTS:
     const validateComments = () => {
         let error = {}
 
@@ -124,6 +125,8 @@ const ContactForm = () => {
         // error === {} ? true : false;
         return Object.keys(error).length === 0 ? true : false;
     }
+
+    // ------------------------------------------------------------------------------
 
     return (
         <section className="contact-form">
@@ -143,45 +146,40 @@ const ContactForm = () => {
                     )
                     :
                     (                        
-                    <>
-                        {
-                            failedSubmit ? (
-                                <div className='alert alert-danger text-center' role="alert">
-                                    <h1 className='alert pb-0 pt-0'>Something went wrong!</h1>
-                                    <p className='alert pb-0 mb-0 pt-1'>We couldn't send your comment right now.</p>
+                        <>
+                            {
+                                failedSubmit ? (
+                                    <div className='alert alert-danger text-center' role="alert">
+                                        <h1 className='alert pb-0 pt-0'>Something went wrong!</h1>
+                                        <p className='alert pb-0 mb-0 pt-1'>We couldn't send your comment right now.</p>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            <h1>Come in Contact with Us</h1>
+                            <form onSubmit={handleSubmit} noValidate>
+                                <div className="top-form">
+                                    <div className="input-holder">
+                                        <label htmlFor="name" id="name-label" className="d-none">Name</label>
+                                        <input type="text" id="name" placeholder="Your Name" value={contactForm.name} onChange={handleChange} onKeyUp={validateName} className={`${(errorName.name) ? "error-input" : ""}`} required />
+                                        <div id="name-error" className="error-text">{errorName.name}</div>
+                                    </div>
+                                    <div className="input-holder">
+                                        <label htmlFor="email" id="email-label" className="d-none">Email</label>
+                                        <input type="email" id="email" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} onKeyUp={validateEmail} className={`${(errorEmail.email) ? "error-input" : ""}`} required />
+                                        <div id="email-error" className="error-text">{errorEmail.email}</div>
+                                    </div>
                                 </div>
-                            ) : (<></>)
-                        }
-                        {/* {
-                            canSubmit ? (
-                                <h1 className="alert alert-success">Message sent!</h1>) : (<></>)
-                        } */}
-                        {/* <pre>{"canSubmit: " + JSON.stringify(canSubmit) + " failedSubmit: " + JSON.stringify(failedSubmit)} </pre> */}
-                        <h1>Come in Contact with Us</h1>
-                        <form onSubmit={handleSubmit} noValidate>
-                            <div className="top-form">
-                                <div className="input-holder">
-                                    <label htmlFor="name" id="name-label" className="d-none">Name</label>
-                                    <input type="text" id="name" placeholder="Your Name" value={contactForm.name} onChange={handleChange} onKeyUp={validateName} className={`${(errorName.name) ? "error-input" : ""}`} required />
-                                    <div id="name-error" className="error-text">{errorName.name}</div>
+                                <div className="bottom-form btn-no-corners">
+                                    <div className="textarea-holder">
+                                        <label htmlFor="comments" id="Comments-label" className="d-none">Comment</label>
+                                        <textarea id="comments" placeholder="Comment" value={contactForm.comments} onChange={handleChange} onKeyUp={validateComments} className={`${(errorComments.comments) ? "error-input" : ""}`} required></textarea>
+                                        <div id="comments-error" className="error-text">{errorComments.comments}</div>
+                                    </div>
+                                    <button className="btn-bg-theme" type="submit">Post Comment</button>
+                                    <div id="submit-message">{submitMessage}</div>
                                 </div>
-                                <div className="input-holder">
-                                    <label htmlFor="email" id="email-label" className="d-none">Email</label>
-                                    <input type="email" id="email" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} onKeyUp={validateEmail} className={`${(errorEmail.email) ? "error-input" : ""}`} required />
-                                    <div id="email-error" className="error-text">{errorEmail.email}</div>
-                                </div>
-                            </div>
-                            <div className="bottom-form btn-no-corners">
-                                <div className="textarea-holder">
-                                    <label htmlFor="comments" id="Comments-label" className="d-none">Comment</label>
-                                    <textarea id="comments" placeholder="Comment" value={contactForm.comments} onChange={handleChange} onKeyUp={validateComments} className={`${(errorComments.comments) ? "error-input" : ""}`} required></textarea>
-                                    <div id="comments-error" className="error-text">{errorComments.comments}</div>
-                                </div>
-                                <button className="btn-bg-theme" type="submit">Post Comment</button>
-                                <div id="submit-message">{submitMessage}</div>
-                            </div>
-                        </form>
-                    </>
+                            </form>
+                        </>
                     )
                 }
             </div>

@@ -6,36 +6,38 @@ import MainMenu from '../sections/MainMenu'
 import ProductInDepthInfo from '../sections/ProductInDepthInfo'
 import ProductOverview from '../sections/ProductOverview'
 import RelatedProducts from '../sections/RelatedProducts'
-
 import React, { useState, useEffect } from 'react';
 
 
 const ProductDetailsView = () => {
+  // ------------------------------------------------------------------------------
+  // ENABLE RENDERING THE PRODUCT NAME IN THE BREADCRUMB SECTION AND IN THE DOCUMENT TITLE:  
   const [productInfo, setProductInfo] = useState({})  
   const params = useParams()
-
+  
   useEffect(() => {
     const fetchProductInfo = async () => {
       const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${params.articleNumber}`)
       setProductInfo(await result.json())
     }
     fetchProductInfo()
-
+    
   }, [setProductInfo])
   
   window.top.document.title = productInfo.name +' | Fixxo.'
 
-
   // ------------------------------------------------------------------------------
   // PRODUCT INFO BUTTON:
-  const productInformation = () =>{
-    console.log("articleNumber: " + productInfo.articleNumber)
-    console.log("name: " + productInfo.name)
-    console.log("category: " + productInfo.category)
-    console.log("price: " + productInfo.price)
-    console.log("rating: " + productInfo.rating)
-    console.log("imageName: " + productInfo.imageName)
-  }
+  // A debugging button which console.log() the current product info:
+  // 
+  // const productInformation = () =>{
+  //   console.log("articleNumber: " + productInfo.articleNumber)
+  //   console.log("name: " + productInfo.name)
+  //   console.log("category: " + productInfo.category)
+  //   console.log("price: " + productInfo.price)
+  //   console.log("rating: " + productInfo.rating)
+  //   console.log("imageName: " + productInfo.imageName)
+  // }
 
   return (
     <>
@@ -44,6 +46,7 @@ const ProductDetailsView = () => {
       <CurrentOfferBanner />
       <ProductOverview />
       <ProductInDepthInfo />
+      {/* PRODUCT INFO BUTTON: */}
       {/* <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={productInformation}>PRODUCT INFO</button></div> */}
       <RelatedProducts />
       <Footer />

@@ -26,7 +26,7 @@ export const ShoppingCartProvider = ({children}) => {
                 return [...items, {articleNumber, product, quantity: 1}]
             } else {
                 return items.map(item => {
-                    if(item.articleNumber===articleNumber){
+                    if(item.articleNumber === articleNumber){
                         return {...item, quantity: item.quantity + 1}
                     } else {
                         return item
@@ -44,7 +44,7 @@ export const ShoppingCartProvider = ({children}) => {
                 return items.filter(item => item.articleNumber !== articleNumber)
             } else {
                 return items.map(item => {
-                    if(item.articleNumber===articleNumber){
+                    if(item.articleNumber === articleNumber){
                         return {...item, quantity: item.quantity - 1}
                     } else {
                         return item

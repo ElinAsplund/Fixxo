@@ -14,9 +14,8 @@ const ProductOverview = () => {
     const [count, setCount] = useState(1)
     const params = useParams()
     const [productInfo, setProductInfo] = useState({})
-    const { incrementQuantity } = useShoppingCart
-
-
+    const { incrementQuantity } = useShoppingCart()
+    
     // ------------------------------------------------------------------------------
     // FETCHING DATA ABOUT A SPECIFIC PRODUCT: 
     useEffect(() => {
@@ -26,17 +25,14 @@ const ProductOverview = () => {
         }
         fetchProductInfo()
     
-      }, [setProductInfo])
+    }, [setProductInfo])
 
     // ------------------------------------------------------------------------------
     // ON SUBMIT:
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        
-        //I try to add the product to the shopping cart, but it won't work,
-        // "Uncaught TypeError: incrementQuantity is not a function":
-        // console.log(productInfo);
+        // Adds the product to the shopping cart, but the quantity itn't updated correctly:
         incrementQuantity({articleNumber: productInfo.articleNumber, product: productInfo})
     }
 
@@ -89,6 +85,8 @@ const ProductOverview = () => {
 
         setCount(prevCount)
     }
+
+    // ------------------------------------------------------------------------------
 
     return (
         <section className="product-overview">

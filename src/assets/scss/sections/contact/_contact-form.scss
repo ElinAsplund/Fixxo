@@ -10,6 +10,7 @@
             img{
                 height: 400px;
             }
+
             .success-message{
                 font-size: $font-size-18;
                 font-weight: $font-weight-medium;
@@ -71,6 +72,7 @@
                         }
                     }
                 }
+                
                 button{
                     margin-top: 1rem;
                     width: 100%;
@@ -79,6 +81,7 @@
                         width: 220px;
                     }
                 }
+                
                 #submit-message{
                     display: block;
                     width: max-content;
@@ -92,7 +95,7 @@
     }
 }
 
-// Styling the error-text
+// Styling the error-text + error-input:
 .error-text{
     margin: 0.5rem 0;
     color: $color-theme;

@@ -28,7 +28,7 @@ describe(ProductOverview, () => {
     })
 
 
-    it(`test if all other size buttons doesn't have the "size-button-dark" class, when S size buttons is clicked `, () => {
+    it(`test if all other size button's classes doesn't contain the "size-button-dark" class, when S size buttons is clicked `, () => {
         const { getByRole, getByTestId } = render(<ProductOverview />)
         const sButton = getByRole('button', {name: 'S'})
         

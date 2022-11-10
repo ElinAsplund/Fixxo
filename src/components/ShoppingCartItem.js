@@ -10,7 +10,7 @@ const ShoppingCartItem = ({item}) => {
     <div className='shopping-cart-item'>
         <div className='item-holder-left d-flex'>
             <div className='item-image'>
-                 <img src={item.product.imageName} alt={item.product.name} />
+                <img src={item.product.imageName} alt={item.product.name} />
             </div>
             <div className='item-info'>
                 <div className='item-info-name'>{item.product.name}</div>

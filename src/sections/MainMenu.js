@@ -25,7 +25,6 @@ const MainMenuSection = ({className}) => {
           <MenuIcon icon="fa-regular fa-magnifying-glass" quantity="" />
           <MenuIcon icon="fa-regular fa-code-compare fa-flip-horizontal" quantity="" />
           <MenuIcon icon="fa-regular fa-heart" quantity="" />
-          {/* <MenuIcon icon="fa-regular fa-bag-shopping" quantity="3" /> */}
           <button className="menu-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
             <i className="fa-regular fa-bag-shopping"></i>
             <div className="badge rounded-pill">{cartQuantity}</div>
