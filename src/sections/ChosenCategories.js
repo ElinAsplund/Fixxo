@@ -1,10 +1,12 @@
 import MiniCard from '../components/MiniCard'
-import { NineProductsContext } from '../contexts/contexts'
-import { useContext } from 'react'
+// import { NineProductsContext } from '../contexts/contexts'
+// import { useContext } from 'react'
+import { useProductContext } from '../contexts/contexts';
 
 const ChosenCategories = () => {
 
-  const products = useContext(NineProductsContext)
+  // const products = useContext(NineProductsContext)
+  const { nineProducts } = useProductContext()
 
   return (
     <section className="chosen-categories ">
@@ -14,7 +16,7 @@ const ChosenCategories = () => {
           <h3 className="middle-coloumn">Best Selling Products</h3>
           <h3 className="last-coloumn">Top Reacted Products</h3>
           {
-            products.map(product => <MiniCard item={product} key={product.articleNumber} />)
+            nineProducts.map(product => <MiniCard item={product} key={product.articleNumber} />)
           }
         </div>
       </div>
