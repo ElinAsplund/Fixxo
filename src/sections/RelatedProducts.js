@@ -1,11 +1,8 @@
 import SmallCard from '../components/SmallCard'
-// import { FourProductsContext } from '../contexts/contexts'
-// import { useContext } from 'react'
-import { useProductContext } from '../contexts/contexts';
+import { useProductContext } from '../contexts/ProductContext';
 
 const RelatedProducts = () => {
 
-    // const products = useContext(FourProductsContext)
     const { fourProducts } = useProductContext()
 
     return (
@@ -21,7 +18,7 @@ const RelatedProducts = () => {
                             <i className="fa-regular fa-chevron-right"></i>
                         </button>
                     </div>
-                </div>    
+                </div>
                 <div className="grid">
                     {
                         fourProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)

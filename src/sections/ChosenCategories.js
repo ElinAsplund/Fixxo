@@ -1,11 +1,8 @@
 import MiniCard from '../components/MiniCard'
-// import { NineProductsContext } from '../contexts/contexts'
-// import { useContext } from 'react'
-import { useProductContext } from '../contexts/contexts';
+import { useProductContext } from '../contexts/ProductContext';
 
 const ChosenCategories = () => {
 
-  // const products = useContext(NineProductsContext)
   const { nineProducts } = useProductContext()
 
   return (

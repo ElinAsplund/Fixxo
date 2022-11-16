@@ -9,17 +9,13 @@ import ChosenCategories from '../sections/ChosenCategories';
 import WebshopInfo from '../sections/WebshopInfo';
 import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
-import React, { useContext } from 'react';
-// import { EighthProductsContext } from '../contexts/contexts'
-import { useProductContext } from '../contexts/contexts';
+import { useProductContext } from '../contexts/ProductContext';
 
 
 const HomeView = () => {
-  window.top.document.title='Fixxo.'
+  window.top.document.title = 'Fixxo.'
 
-  // const eighthProductsContext = useContext(EighthProductsContext)
   const { eighthProducts } = useProductContext()
-
 
   return (
     <>

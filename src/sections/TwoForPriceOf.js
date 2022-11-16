@@ -1,12 +1,9 @@
 import SmallCard from '../components/SmallCard'
 import LgCard from '../components/LgCard'
-// import { FourProductsContext } from '../contexts/contexts'
-import { useContext } from 'react'
-import { useProductContext } from '../contexts/contexts';
+import { useProductContext } from '../contexts/ProductContext';
 
 const TwoForPriceOf = () => {
 
-    // const products = useContext(FourProductsContext)
     const { fourProducts } = useProductContext()
 
     return (
@@ -15,10 +12,10 @@ const TwoForPriceOf = () => {
             <div id="grid-justify-start">
                 <div className="grid-holder" id="grid-holder-first">
                     <div className="grid-1">
-                        <LgCard heading="2 FOR USD $29" id="lg-card-1"/>
+                        <LgCard heading="2 FOR USD $29" id="lg-card-1" />
                         {
                             fourProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)
-                        } 
+                        }
                     </div>
                 </div>
             </div>
@@ -28,8 +25,8 @@ const TwoForPriceOf = () => {
                     <div className="grid-2">
                         {
                             fourProducts.map(product => <SmallCard item={product} key={product.articleNumber} />)
-                        } 
-                        <LgCard heading="2 FOR USD $49" id="lg-card-2"/>
+                        }
+                        <LgCard heading="2 FOR USD $49" id="lg-card-2" />
                     </div>
                 </div>
             </div>
