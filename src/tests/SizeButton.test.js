@@ -1,7 +1,7 @@
 import { render, fireEvent } from '@testing-library/react'
 import ProductOverview from '../sections/ProductOverview'
 
-describe(ProductOverview, () => {
+describe( ProductOverview , () => {
 
     it('tests if size buttons contains the corresponding text: S, M, L, XL', () => {
         const { getByTestId } = render(<ProductOverview />)
